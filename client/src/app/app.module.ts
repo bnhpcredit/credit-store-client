@@ -6,6 +6,12 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppMaterialModule } from './app.material.module';
+import {IntroModule} from './intro/intro.module';
+import {IdNumberModule} from './id-number/id-number.module';
+import {OtpModule} from './otp/otp.module';
+import {QueriesModule} from './queries/queries.module';
+import {LoanDetailsModule} from './loan-details/loan-details.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +23,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AppMaterialModule,
+    IntroModule, IdNumberModule, OtpModule, QueriesModule, LoanDetailsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

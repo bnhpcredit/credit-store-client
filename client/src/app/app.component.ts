@@ -1,9 +1,11 @@
 
-import { Component, OnDestroy } from '@angular/core';
+import {Component, OnDestroy, ViewChild} from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AppService } from './app.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import {ScreenStages} from './screen-stages.enum';
+import {MatSidenav} from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +13,11 @@ import { Subject } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnDestroy {
+  @ViewChild(MatSidenav) sidenav;
+  screenStages = ScreenStages;
+  screenStage = ScreenStages.Intro;
 
   constructor(private appService: AppService) {}
-
-  title = 'angular-nodejs-example';
 
   userForm = new FormGroup({
     phone: new FormControl('', Validators.nullValidator && Validators.required),
@@ -25,6 +28,11 @@ export class AppComponent implements OnDestroy {
   userCount = 0;
 
   destroy$: Subject<boolean> = new Subject<boolean>();
+
+  showStage(screenStage: ScreenStages) {
+    this.screenStage = screenStage;
+    this.sidenav.toggle();
+  }
 
   onSubmit() {
     this.appService.addUser(this.userForm.value).pipe(takeUntil(this.destroy$)).subscribe(data => {
