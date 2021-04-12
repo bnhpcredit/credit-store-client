@@ -29,9 +29,11 @@ export class AppComponent implements OnDestroy {
 
   destroy$: Subject<boolean> = new Subject<boolean>();
 
-  showStage(screenStage: ScreenStages) {
+  showStage(screenStage: ScreenStages, sidenavToggle = false) {
     this.screenStage = screenStage;
-    this.sidenav.toggle();
+    if (sidenavToggle) {
+      this.sidenav.toggle();
+    }
   }
 
   onSubmit() {
