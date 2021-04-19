@@ -1,16 +1,16 @@
-
-import {Component, OnDestroy, ViewChild} from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AppService } from './app.service';
-import { takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
+import {Component, OnDestroy, ViewChild, ViewEncapsulation} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {AppService} from './app.service';
+import {takeUntil} from 'rxjs/operators';
+import {Subject} from 'rxjs';
 import {ScreenStages} from './screen-stages.enum';
 import {MatSidenav} from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnDestroy {
   @ViewChild(MatSidenav) sidenav;

@@ -7,6 +7,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatDividerModule} from '@angular/material/divider';
 // import { MatOptionModule } from '@angular/material/core';
 // import {MatChipsModule} from '@angular/material/chips';
 // import {MatIconModule} from '@angular/material/icon';
@@ -26,7 +27,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
   ],
   exports: [
     MatCardModule, MatButtonModule, MatSidenavModule, MatMenuModule, MatInputModule,
-    MatCheckboxModule, MatToolbarModule, MatGridListModule
+    MatCheckboxModule, MatToolbarModule, MatGridListModule,
+    MatDividerModule,
     // MatChipsModule, MatOptionModule, MatGridListModule,
     // MatProgressBarModule, MatSliderModule, MatSlideToggleModule,
     // MatDialogModule, MatSnackBarModule, MatSelectModule,
