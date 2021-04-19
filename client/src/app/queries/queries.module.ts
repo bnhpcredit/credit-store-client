@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { QueriesComponent } from '../queries/queries.component';
+import { AppMaterialModule } from '../app.material.module';
 
 
 
@@ -10,7 +11,8 @@ import { QueriesComponent } from '../queries/queries.component';
         QueriesComponent
     ],
     imports: [
-        CommonModule
+        CommonModule,
+        AppMaterialModule
     ]
 })
 export class QueriesModule { }
