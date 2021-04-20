@@ -1,1 +1,26 @@
-<p>loan-details works!</p>
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>  הלוואה בתנאים מותאמים: </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="column">
+        
+        <mat-form-field class="example-full-width">
+          <mat-label> מה סכום ההלואה שאתה מעוניין? </mat-label>
+          <input type="number" matInput placeholder="0">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label> תנאי הלוואה: </mat-label>
+            <input matInput placeholder="Ex. It makes me feel...">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label> תאריך התחלה: </mat-label>
+            <input type="date"  matInput placeholder="Ex. It makes me feel...">
+        </mat-form-field>
+            
+      </div>
+    </mat-card-content>
+    <mat-card-actions dir="ltr">
+      <button mat-raised-button color="warn" (click)="nextStage()">המשך</button>
+    </mat-card-actions>
+  </mat-card>

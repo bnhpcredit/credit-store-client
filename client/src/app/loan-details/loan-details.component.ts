@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./loan-details.component.scss']
 })
 export class LoanDetailsComponent implements OnInit {
-
+  today = new Date().toDateString();
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }
