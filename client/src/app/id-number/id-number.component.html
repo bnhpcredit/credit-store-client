@@ -4,16 +4,23 @@
     </mat-card-header>
     <mat-card-content>
       <div>
-        
-        <mat-form-field class="example-full-width">
-          <mat-label> תעודת זהות </mat-label>
-          <input type="number" matInput placeholder="Ex. It makes me feel...">
+
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label> שם: </mat-label>
+          <input type="text" matInput placeholder="ישראל ישראלי">
         </mat-form-field>
-            
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label> תעודת זהות: </mat-label>
+          <input type="number" matInput placeholder="012345678">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label> מספר טלפון: </mat-label>
+          <input type="number" matInput placeholder="0512345678">
+        </mat-form-field>
+
       </div>
     </mat-card-content>
     <mat-card-actions dir="ltr">
       <button mat-raised-button color="warn" (click)="nextStage()">המשך</button>
     </mat-card-actions>
   </mat-card>
-  
