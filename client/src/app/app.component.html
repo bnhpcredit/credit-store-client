@@ -7,7 +7,7 @@
     <span class="title">בנק הפועלים</span>
   </mat-toolbar>
 
-  <mat-sidenav #sidenav mode="over" class="app-sidenav" color="primary">
+  <mat-sidenav #sidenav mode="over" class="app-sidenav">
     <mat-toolbar>
       <mat-toolbar-row>
         <span>בחר מסך</span>
@@ -34,9 +34,9 @@
 
   <div class="app-content" [ngSwitch]="screenStage">
     <app-intro *ngSwitchCase="screenStages.Intro" (next)="showStage(screenStages.IdNumber)"></app-intro>
-    <app-id-number *ngSwitchCase="screenStages.IdNumber"></app-id-number>
-    <app-otp *ngSwitchCase="screenStages.Otp"></app-otp>
-    <app-queries *ngSwitchCase="screenStages.Queries"></app-queries>
+    <app-id-number *ngSwitchCase="screenStages.IdNumber" (next)="showStage(screenStages.Otp)"></app-id-number>
+    <app-otp *ngSwitchCase="screenStages.Otp" (next)="showStage(screenStages.Queries)"></app-otp>
+    <app-queries *ngSwitchCase="screenStages.Queries" (next)="showStage(screenStages.LoanDetails)"></app-queries>
     <app-loan-details *ngSwitchCase="screenStages.LoanDetails"></app-loan-details>
 
     <!-- old code -->

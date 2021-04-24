@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-otp',
@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./otp.component.scss']
 })
 export class OtpComponent implements OnInit {
+  @Output() next = new EventEmitter<void>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  nextStage() {
+    this.next.emit();
+  }
 }
