@@ -1,4 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-id-number',
@@ -7,14 +8,32 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 })
 export class IdNumberComponent implements OnInit {
   @Output() next = new EventEmitter<void>();
+  formGroup: FormGroup;
+  titleAlert = 'שדה זה נדרש';
 
-  constructor() { }
-
-  ngOnInit(): void {
+  formControl(name: string) {
+    return this.formGroup.get(name) as FormControl;
   }
 
-  nextStage() {
-    this.next.emit();
+  constructor(private formBuilder: FormBuilder) { }
+
+  ngOnInit(): void {
+    this.createForm();
+  }
+
+  createForm() {
+    this.formGroup = this.formBuilder.group({
+      name: [null, Validators.required],
+      idNumber: [null, Validators.required],
+      phone: [null, Validators.required],
+    });
+  }
+
+
+  onSubmit() {
+    if (this.formGroup.valid) {
+      this.next.emit();
+    }
   }
 
 }

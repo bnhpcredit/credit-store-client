@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IdNumberComponent } from './id-number.component';
 import { AppMaterialModule } from '../app.material.module';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 
@@ -9,7 +10,8 @@ import { AppMaterialModule } from '../app.material.module';
   declarations: [IdNumberComponent],
   imports: [
     CommonModule,
-    AppMaterialModule
+    AppMaterialModule,
+    ReactiveFormsModule
   ],
   exports: [IdNumberComponent]
 })
