@@ -12,10 +12,11 @@ import {IdNumberModule} from './id-number/id-number.module';
 import {OtpModule} from './otp/otp.module';
 import {QueriesModule} from './queries/queries.module';
 import {LoanDetailsModule} from './loan-details/loan-details.module';
-
+import { HomePageComponent } from './intro/home-page/home-page.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomePageComponent
 
   ],
   imports: [
