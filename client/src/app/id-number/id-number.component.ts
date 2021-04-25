@@ -1,5 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {StateStoreService} from '../utils/state/state-store.service';
 
 @Component({
   selector: 'app-id-number',
@@ -15,7 +16,7 @@ export class IdNumberComponent implements OnInit {
     return this.formGroup.get(name) as FormControl;
   }
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private stateStore: StateStoreService) { }
 
   ngOnInit(): void {
     this.createForm();
@@ -32,6 +33,9 @@ export class IdNumberComponent implements OnInit {
 
   onSubmit() {
     if (this.formGroup.valid) {
+      this.stateStore.name.update(this.formGroup.get('name').value);
+      this.stateStore.idNumber.update(this.formGroup.get('idNumber').value);
+      this.stateStore.phone.update(this.formGroup.get('phone').value);
       this.next.emit();
     }
   }

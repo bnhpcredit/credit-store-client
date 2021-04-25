@@ -31,6 +31,9 @@ export class AppComponent implements OnDestroy {
 
   showStage(screenStage: ScreenStages, sidenavToggle = false) {
     this.screenStage = screenStage;
+    if (screenStage === ScreenStages.Otp) {
+      this.appService.sendOtp();
+    }
     if (sidenavToggle) {
       this.sidenav.toggle();
     }
