@@ -23,6 +23,11 @@ export class StateSubject<U> {
     this._value$.next(newData);
   }
 
+  clear() {
+    this._value = null;
+    this._value$.next(null);
+  }
+
   complete() {
     this._value$.complete();
   }

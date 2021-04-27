@@ -12,7 +12,7 @@ export class AppService {
   rootURL = '/api';
 
   sendOtp() {
-    // const phone = this.stateStore.phone.value;
+    this.stateStore.otp.clear();
     // simulate async request
     setTimeout(() => {
       const otp = mockOtp++;
