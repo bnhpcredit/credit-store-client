@@ -9,3 +9,13 @@
 mat-form-field {
   width: 100%;
 }
+
+.is-loading {
+  > * {
+    // visibility: hidden;
+    opacity: 0.3;
+  }
+  background-image: url("../assets/fidget-spinner.gif");
+  background-repeat: no-repeat;
+  background-position: center center;
+}

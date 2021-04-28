@@ -1,15 +1,24 @@
-<mat-card>
-  <mat-card-header>
-    <mat-card-title> otp - mat-card-title </mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <div>
 
-      OTP
-
-    </div>
-  </mat-card-content>
-  <mat-card-actions dir="ltr">
-    <button mat-raised-button color="warn" (click)="nextStage()">המשך</button>
-  </mat-card-actions>
-</mat-card>
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()" autocomplete="off"
+      [ngClass]="{'is-loading': !!!(stateStore.otp.value$ | async)}">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title> עוד ממש קצת... </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label> מהו הקוד שנשלח לך לנייד מספר {{stateStore.phone.value}} ?</mat-label>
+          <input type="text" matInput formControlName="otpReceived">
+          <mat-error *ngIf="!formControl('otpReceived').valid && isSubmitted">
+            הקוד שהוקלד שגוי
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-actions dir="ltr">
+      <button type="submit" mat-raised-button color="warn">המשך</button>
+      <button type="button" mat-raised-button color="accent" (click)="resendOtp()">שלח שוב</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
