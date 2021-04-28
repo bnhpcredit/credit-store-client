@@ -12,6 +12,7 @@ import {IdNumberModule} from './id-number/id-number.module';
 import {OtpModule} from './otp/otp.module';
 import {QueriesModule} from './queries/queries.module';
 import {LoanDetailsModule} from './loan-details/loan-details.module';
+import { httpInterceptorProviders } from './http-interceptors';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import {LoanDetailsModule} from './loan-details/loan-details.module';
     AppMaterialModule,
     IntroModule, IdNumberModule, OtpModule, QueriesModule, LoanDetailsModule
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
