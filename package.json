@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/bnhpcredit/credit-store-client#readme",
   "dependencies": {
+    "@angular/flex-layout": "^11.0.0-beta.33",
     "express": "^4.17.1"
   },
   "devDependencies": {

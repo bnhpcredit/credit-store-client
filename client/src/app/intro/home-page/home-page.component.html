@@ -1,51 +1,21 @@
 
-<h1>מה בא לך?</h1>
 
 <mat-card class="card">
-  <img mat-card-image src="../../assets/images/holiday.jpg" alt="Holiday">
-  <mat-card-content>
-    <mat-card-title>xxx</mat-card-title>
-  </mat-card-content>
-</mat-card>
-
-<mat-card class="card">
-  <img mat-card-image src="../../assets/images/learning.jpg" alt="Learning">
-  <mat-card-content>
-    <mat-card-title>xxx</mat-card-title>
-  </mat-card-content>
-</mat-card>
-
-<mat-card class="card">
-  <img mat-card-image src="../../assets/images/colors.jpg" alt="Renovation">
-  <mat-card-content>
-    <mat-card-title>xxx</mat-card-title>
-  </mat-card-content>
-</mat-card>
-
-<mat-card class="card">
-  <img mat-card-image src="../../assets/images/helping2.jpg" alt="Helping">
-  <mat-card-content>
-    <mat-card-title>first</mat-card-title>
-  </mat-card-content>
-</mat-card>
-
-<mat-card class="card">
-  <img mat-card-image src="../../assets/images/debt.jpg" alt="Debt">
-  <mat-card-content>
-    <mat-card-title>first</mat-card-title>
-  </mat-card-content>
-</mat-card>
-
-<mat-card class="card">
-  <img mat-card-image src="../../assets/images/new-buisness-good.jpg" alt="New buisness">
-  <mat-card-content>
-    <mat-card-title>xxx</mat-card-title>
-  </mat-card-content>
-</mat-card>
-
-<mat-card class="card">
-  <img mat-card-image src="../../assets/images/fulfill-your-dreams.jpg" alt="Dreams">
-  <mat-card-content>
-    <mat-card-title>xxx</mat-card-title>
-  </mat-card-content>
+  <div class="container">
+  <mat-card-title style="text-align: center;">מה בא לך?</mat-card-title>
+</div>
+<mdb-carousel
+[controls]="true"
+[indicators]="true"
+[interval]="2000"
+[dark]="true">
+  <mdb-carousel-item *ngFor="let slider of sliders; let i = index">
+    <div class="lottie d-flex align-items-center">
+    <ng-lottie [options]="slider.options" (animationCreated)="animationCreated($event)"></ng-lottie>
+  </div>
+    <div class="carousel-caption">
+      <h5>{{slider.title}}</h5>
+    </div>
+  </mdb-carousel-item>
+</mdb-carousel>
 </mat-card>

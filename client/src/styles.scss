@@ -1,10 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap');
-html, body {
-  height: 100%;
+
+// $open-sans: 'Open Sans', sans-serif;
+
+@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '~@fortawesome/fontawesome-free/scss/solid.scss';
+@import '~@fortawesome/fontawesome-free/scss/regular.scss';
+@import '~@fortawesome/fontawesome-free/scss/brands.scss';
+
+@import '~mdb-angular-ui-kit/assets/scss/mdb.scss';
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@500&family=Bellefair&family=Poppins:wght@200&family=Roboto&family=Rubik:wght@400;600&display=swap');
+
+
+body{
+  font-family: 'Rubik', sans-serif;;
+
 }
 
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+
+
+// Google Fonts
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab|Open+Sans:400italic,700italic,400,700);
+
+// Font Variables
+
+
+
+html, body {
+  height: 100%;
+  font-family: 'Rubik', sans-serif;;
+
 }
