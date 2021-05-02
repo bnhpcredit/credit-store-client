@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CreditOtpService {
-  private _URLBASE = 'otp'
+  private _URLBASE = 'otp';
   constructor(private http: HttpClient) { }
 
   get(params: {phone: string, otp: string}): Observable<any> {
