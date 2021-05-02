@@ -1,0 +1,9 @@
+.app-queries {
+  mat-radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    > * {
+      margin: 6px;
+    }
+  }
+}

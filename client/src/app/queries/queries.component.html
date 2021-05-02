@@ -1,15 +1,38 @@
-<mat-card>
-  <mat-card-header>
-    <mat-card-title> queries - mat-card-title </mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <div>
+<form [formGroup]="formGroup" (ngSubmit)="nextStage()">
+  <mat-card class="app-queries">
+    <mat-card-header>
+      <mat-card-title>
+        אוטוטו צוללים להגשמת החלום,
+        לפני כן עוד כמה שאלות:
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <h3> מה מצבך התעסוקתי? </h3>
+      <section class="radio-group-section">
+        <mat-radio-group formControlName="occupation">
+          <mat-radio-button value="{{occupations.Employee}}"> שכיר </mat-radio-button>
+          <mat-radio-button value="{{occupations.SelfEmployee}}"> עצמאי </mat-radio-button>
+          <mat-radio-button value="{{occupations.Retired}}"> גמלאי </mat-radio-button>
+          <mat-radio-button value="{{occupations.LeaveOfAbsence}}"> חל"ת </mat-radio-button>
+          <mat-error *ngIf="!formControl('occupation').valid && isSubmitted">
+            {{ titleAlert }}
+          </mat-error>
+        </mat-radio-group>
+      </section>
 
-      queries
-
-    </div>
-  </mat-card-content>
-  <mat-card-actions dir="ltr">
-    <button mat-raised-button color="warn" (click)="nextStage()">המשך</button>
-  </mat-card-actions>
-</mat-card>
+      <h3> האם הדירה שאתה מתגורר בבעלותך? </h3>
+      <section class="radio-group-section" >
+        <mat-radio-group formControlName="accommodation">
+          <mat-radio-button value="{{accommodations.Bought}}"> כן </mat-radio-button>
+          <mat-radio-button value="{{accommodations.NoneBought}}"> לא </mat-radio-button>
+        </mat-radio-group>
+        <mat-error *ngIf="!formControl('accommodation').valid && isSubmitted">
+          {{ titleAlert }}
+        </mat-error>
+      </section>
+    </mat-card-content>
+    <mat-card-actions dir="ltr">
+      <button type="submit" mat-raised-button color="warn">המשך</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

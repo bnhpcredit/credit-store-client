@@ -10,6 +10,11 @@ mat-form-field {
   width: 100%;
 }
 
+h3, h4 {
+  text-align: center;
+  margin: 10px 0;
+}
+
 .is-loading {
   > * {
     // visibility: hidden;
