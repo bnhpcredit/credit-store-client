@@ -1,26 +1,34 @@
-<mat-card>
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()" autocomplete="off">
+  <mat-card>
     <mat-card-header>
       <mat-card-title>  הלוואה בתנאים מותאמים: </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <div class="column">
-        
         <mat-form-field class="example-full-width" appearance="outline">
           <mat-label> מה סכום ההלואה שאתה מעוניין? </mat-label>
-          <input type="number" matInput placeholder="0">
+          <input type="number" matInput placeholder="0" formControlName="loanAmount">
+          <span matPrefix>₪&nbsp;</span>
+          <mat-error *ngIf="!formControl('loanAmount').valid && formControl('loanAmount')">
+            {{ titleAlert }}
+          </mat-error>
         </mat-form-field>
         <mat-form-field class="example-full-width" appearance="outline">
             <mat-label> בכמה תשלומים חודשיים תוכל להחזיר את ההלוואה? </mat-label>
-            <input type="number" matInput placeholder="12">
+            <input type="number"  maxlength="3" matInput placeholder="12" formControlName="payments">
+          <mat-error *ngIf="!formControl('payments').valid && formControl('payments')">
+            {{ titleAlert }}
+          </mat-error>
         </mat-form-field>
         <mat-form-field class="example-full-width" appearance="outline">
             <mat-label> תאריך התחלה: </mat-label>
-            <input type="date"  matInput >
+            <input type="date" required  matInput formControlName="startDate">
+          <mat-error *ngIf="!formControl('startDate').valid && formControl('startDate')">
+            {{ titleAlert }}
+          </mat-error>
         </mat-form-field>
-            
-      </div>
     </mat-card-content>
     <mat-card-actions dir="ltr">
-      <button mat-raised-button color="warn" (click)="nextStage()">המשך</button>
+      <button type="submit" mat-raised-button color="warn">המשך</button>
     </mat-card-actions>
   </mat-card>
+</form>

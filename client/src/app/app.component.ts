@@ -5,6 +5,7 @@ import {takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import {ScreenStages} from './screen-stages.enum';
 import {MatSidenav} from '@angular/material/sidenav';
+import { CreditOtpService } from './services/credit-otp/credit-otp.service';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,9 @@ export class AppComponent implements OnDestroy {
   screenStages = ScreenStages;
   screenStage = ScreenStages.Intro;
 
-  constructor(private appService: AppService) {}
+  constructor(private appService: AppService, private otp: CreditOtpService) {
+    this.otp.get({phone: '1234', otp: '1234'}).subscribe(res => console.log(res))
+  }
 
   userForm = new FormGroup({
     phone: new FormControl('', Validators.nullValidator && Validators.required),
