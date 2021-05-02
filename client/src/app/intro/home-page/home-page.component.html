@@ -1,0 +1,21 @@
+
+
+<mat-card class="card">
+  <div class="container">
+  <mat-card-title style="text-align: center;">מה בא לך?</mat-card-title>
+</div>
+<mdb-carousel
+[controls]="true"
+[indicators]="true"
+[interval]="2000"
+[dark]="true">
+  <mdb-carousel-item *ngFor="let slider of sliders; let i = index">
+    <div class="lottie d-flex align-items-center">
+    <ng-lottie [options]="slider.options" (animationCreated)="animationCreated($event)"></ng-lottie>
+  </div>
+    <div class="carousel-caption">
+      <h5>{{slider.title}}</h5>
+    </div>
+  </mdb-carousel-item>
+</mdb-carousel>
+</mat-card>
