@@ -13,14 +13,14 @@
       </mat-form-field>
       <mat-form-field class="example-full-width" appearance="outline">
         <mat-label> תעודת זהות: </mat-label>
-        <input type="number" matInput placeholder="012345678" formControlName="idNumber">
+        <input type="tel" matInput placeholder="012345678" formControlName="idNumber">
         <mat-error *ngIf="!formControl('idNumber').valid && formControl('idNumber').touched">
           {{ titleAlert }}
         </mat-error>
       </mat-form-field>
       <mat-form-field class="example-full-width" appearance="outline">
         <mat-label> מספר טלפון: </mat-label>
-        <input type="number" matInput placeholder="0512345678" formControlName="phone">
+        <input type="tel" matInput placeholder="0512345678" formControlName="phone">
         <mat-error *ngIf="!formControl('phone').valid && formControl('phone').touched">
           {{ titleAlert }}
         </mat-error>

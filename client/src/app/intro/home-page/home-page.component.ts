@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AnimationItem } from 'lottie-web';
 import { Slider } from './slider.model';
 @Component({
