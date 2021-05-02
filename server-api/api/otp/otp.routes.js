@@ -1,7 +1,8 @@
 const express = require('express');
-const { getOtpForPhone } = require('./otp.controller');
+const { getOtpForPhone, createOtpForPhone } = require('./otp.controller');
 
 const router = express.Router();
-router.post('', getOtpForPhone)
+router.get('/', getOtpForPhone);
+router.post('/', createOtpForPhone);
 
 module.exports = router;
