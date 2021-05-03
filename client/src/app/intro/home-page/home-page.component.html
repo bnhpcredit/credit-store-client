@@ -1,15 +1,23 @@
+<div class="carusel-container">
+  <div>
+  <div *ngIf="mouseover" class="box">
+    <div>
+      <ng-lottie [options]="nextSlider.options" (animationCreated)="animationCreated($event)"></ng-lottie>
+    </div>
+    <div>
+      <ng-lottie  [options]="clickSlider.options" (animationCreated)="animationCreated($event)"></ng-lottie>
+    </div>
 
-
-
-<div style="background-color:#a0aae5" class="carusel-container">
+  </div>
+  </div>
   <h1 style="text-align: center;">מה בא לך?</h1>
-<div (mouseover)="mouseover=true" (mouseout)="mouseover=false">
-<mdb-carousel *ngIf="!mouseover"
+<div >
+<mdb-carousel
 [controls]="true"
 [indicators]="false"
 [interval]="2000"
 >
-  <mdb-carousel-item *ngFor="let slider of sliders; let i = index">
+  <mdb-carousel-item (mouseover)="mouseover=true" *ngFor="let slider of sliders; let i = index">
     <div  class="lottie d-flex align-items-center">
     <ng-lottie [options]="slider.options" (animationCreated)="animationCreated($event)"></ng-lottie>
   </div>
@@ -19,15 +27,6 @@
   </mdb-carousel-item>
 </mdb-carousel>
 <div>
-  <div *ngIf="mouseover" class="box">
-    <div>
-      <ng-lottie [options]="nextSlider.options" (animationCreated)="animationCreated($event)"></ng-lottie>
-    </div>
-
-    <div>
-      <ng-lottie  [options]="clickSlider.options" (animationCreated)="animationCreated($event)"></ng-lottie>
-    </div>
-  </div>
 </div>
 </div>
 

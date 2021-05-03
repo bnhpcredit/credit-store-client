@@ -17,4 +17,6 @@ export class IntroComponent implements OnInit {
     this.next.emit();
   }
 
+
+
 }

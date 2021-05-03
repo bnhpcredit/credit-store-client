@@ -71,13 +71,7 @@ export class HomePageComponent implements OnInit{
   },]
 
 
-  clickSlider:Slider =  {
-    options: {
-     path: '/assets/lotties/touch.json',
-     loop: true,
-    },
-    title: 'המשך',
-  }
+
 
   nextSlider:Slider =  {
     options: {
@@ -86,6 +80,16 @@ export class HomePageComponent implements OnInit{
     },
     title: 'המשך',
   }
+
+
+  clickSlider:Slider =  {
+    options: {
+     path: '/assets/lotties/10742-hand-tap.json',
+     loop: true,
+    },
+    title: 'המשך',
+  }
+
   nextSliders: Slider[] = [  {
     options: {
      path: '/assets/lotties/26866-next-button.json',
@@ -96,7 +100,7 @@ export class HomePageComponent implements OnInit{
 
   {
     options: {
-     path: '/assets/lotties/touch.json',
+     path: '/assets/lotties/53969-click.json',
      loop: true,
     },
     title: 'המשך',

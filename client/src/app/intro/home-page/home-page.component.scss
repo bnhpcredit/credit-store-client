@@ -7,34 +7,25 @@ mdb-carousel-item{
 .lottie{
   display: flex;
   justify-content: center;
-  height: 450px ;
 }
 
-* {
+*{
   font-family: 'Rubik', sans-serif;
   font-weight:600;
 }
 
-h1{
+.carusel-container {
+  background-color: #a0aae5;
+}
+
+h1 {
   font-size: 30px;
   color: white;
 
 }
 
 .carousel-caption{
-  font-size: 14px;
-}
-
-.card{
- // background-color:#a0aae5;
-
-
-}
-
-.alinger{
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 20px;
 }
 
 
