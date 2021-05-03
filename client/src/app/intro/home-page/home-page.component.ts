@@ -82,4 +82,9 @@ export class HomePageComponent{
   animationCreated(animationItem: AnimationItem): void {
     console.log(animationItem);
   }
+
+  onNext(){
+    this.next.emit();
+    alert('kjdfksdjfs')
+  }
 }

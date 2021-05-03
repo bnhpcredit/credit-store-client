@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Arimo:wght@500&family=Bellefair&family=Poppins:wght@200&family=Roboto&family=Rubik:wght@400;600&display=swap');
 
 mdb-carousel-item{
-   margin:auto
+   margin:auto;
 }
 
 .lottie{
@@ -9,31 +9,42 @@ mdb-carousel-item{
   justify-content: center;
 }
 
-
-
 *{
   font-family: 'Rubik', sans-serif;
   font-weight:600;
+}
 
+.carusel-container{
+  padding-top:2.25rem;
 }
 
 h1 {
   font-size: 30px;
+
 }
 
 .carousel-caption{
   font-size: 20px;
 }
 
-
-.click-next {
+.click-next, .dots{
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
 }
 
 .click-next div {
   width: 100px;
   height: 100px;
+  position: relative;
+  bottom: 74px;
 }
+
+.dots div {
+  width: 200px;
+  height: 200px;
+}
+
+

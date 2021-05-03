@@ -31,7 +31,7 @@
     </mat-toolbar>
   </mat-sidenav>
   <div class="app-content" [ngSwitch]="screenStage">
-    <app-intro *ngSwitchCase="screenStages.Intro" (next)="showStage(screenStages.IdNumber)"></app-intro>
+    <app-home-page *ngSwitchCase="screenStages.Intro" (next)="showStage(screenStages.IdNumber)"></app-home-page>
     <app-id-number *ngSwitchCase="screenStages.IdNumber" (next)="showStage(screenStages.Otp)"></app-id-number>
     <app-otp *ngSwitchCase="screenStages.Otp" (next)="showStage(screenStages.Queries)"></app-otp>
     <app-queries *ngSwitchCase="screenStages.Queries" (next)="showStage(screenStages.LoanDetails)"></app-queries>
@@ -41,7 +41,6 @@
 
 
 
- <app-home-page></app-home-page>
 
 
 
