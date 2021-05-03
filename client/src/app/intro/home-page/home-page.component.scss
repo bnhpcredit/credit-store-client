@@ -11,15 +11,41 @@ mdb-carousel-item{
 }
 
 * {
-  font-family: 'Rubik', sans-serif;;
+  font-family: 'Rubik', sans-serif;
   font-weight:600;
 }
 
-.title{
-  font-size: 25px;
+h1{
+  font-size: 30px;
+  color: white;
+
 }
 
 .carousel-caption{
   font-size: 14px;
 }
 
+.card{
+ // background-color:#a0aae5;
+
+
+}
+
+.alinger{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.box div {
+  width: 100px;
+  height: 100px;
+}

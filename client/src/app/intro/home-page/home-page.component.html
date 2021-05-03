@@ -1,16 +1,16 @@
 
 
-<mat-card class="card">
-  <div class="container">
-  <mat-card-title style="text-align: center;">מה בא לך?</mat-card-title>
-</div>
-<mdb-carousel
+
+<div style="background-color:#a0aae5" class="carusel-container">
+  <h1 style="text-align: center;">מה בא לך?</h1>
+<div (mouseover)="mouseover=true" (mouseout)="mouseover=false">
+<mdb-carousel *ngIf="!mouseover"
 [controls]="true"
-[indicators]="true"
+[indicators]="false"
 [interval]="2000"
-[dark]="true">
+>
   <mdb-carousel-item *ngFor="let slider of sliders; let i = index">
-    <div class="lottie d-flex align-items-center">
+    <div  class="lottie d-flex align-items-center">
     <ng-lottie [options]="slider.options" (animationCreated)="animationCreated($event)"></ng-lottie>
   </div>
     <div class="carousel-caption">
@@ -18,4 +18,20 @@
     </div>
   </mdb-carousel-item>
 </mdb-carousel>
-</mat-card>
+<div>
+  <div *ngIf="mouseover" class="box">
+    <div>
+      <ng-lottie [options]="nextSlider.options" (animationCreated)="animationCreated($event)"></ng-lottie>
+    </div>
+
+    <div>
+      <ng-lottie  [options]="clickSlider.options" (animationCreated)="animationCreated($event)"></ng-lottie>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
