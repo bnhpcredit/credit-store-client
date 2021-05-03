@@ -1,4 +1,7 @@
 <div class="carusel-container">
+
+  <h1 (mouseout)="mouseover=false" style="text-align: center;">מה בא לך?</h1>
+
   <div>
   <div *ngIf="mouseover" class="box">
     <div>
@@ -7,11 +10,10 @@
     <div>
       <ng-lottie  [options]="clickSlider.options" (animationCreated)="animationCreated($event)"></ng-lottie>
     </div>
-
   </div>
   </div>
-  <h1 style="text-align: center;">מה בא לך?</h1>
 <div >
+
 <mdb-carousel
 [controls]="true"
 [indicators]="false"
