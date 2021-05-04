@@ -1,35 +1,10 @@
 <mat-sidenav-container>
   <mat-toolbar color="primary">
-    <button mat-button class="app-menu-button" (click)="sidenav.toggle()">
-      <i class="material-icons">menu</i>
-    </button>
-    <span class="title">בנק הפועלים</span>
+    <span class="title">
+      בנק הפועלים
+    </span>
   </mat-toolbar>
 
-  <mat-sidenav #sidenav mode="over" class="app-sidenav">
-    <mat-toolbar>
-      <mat-toolbar-row>
-        <span>בחר מסך</span>
-      </mat-toolbar-row>
-
-      <mat-toolbar-row>
-        <button mat-button (click)="showStage(screenStages.Intro, true)" class="app-sidebar-button">Intro</button>
-      </mat-toolbar-row>
-      <mat-toolbar-row>
-        <button mat-button (click)="showStage(screenStages.IdNumber, true)" class="app-sidebar-button">Id Nuber</button>
-      </mat-toolbar-row>
-      <mat-toolbar-row>
-        <button mat-button (click)="showStage(screenStages.Otp, true)" class="app-sidebar-button">Otp</button>
-      </mat-toolbar-row>
-      <mat-toolbar-row>
-        <button mat-button (click)="showStage(screenStages.Queries, true)" class="app-sidebar-button">Queries</button>
-      </mat-toolbar-row>
-      <mat-toolbar-row>
-        <button mat-button (click)="showStage(screenStages.LoanDetails, true)" class="app-sidebar-button">Loan Details
-        </button>
-      </mat-toolbar-row>
-    </mat-toolbar>
-  </mat-sidenav>
   <div class="app-content" [ngSwitch]="screenStage">
     <app-home-page *ngSwitchCase="screenStages.Intro" (next)="showStage(screenStages.IdNumber)"></app-home-page>
     <app-id-number *ngSwitchCase="screenStages.IdNumber" (next)="showStage(screenStages.Otp)"></app-id-number>

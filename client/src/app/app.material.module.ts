@@ -8,6 +8,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   imports: [
@@ -15,8 +17,7 @@ import {MatDividerModule} from '@angular/material/divider';
   exports: [
     MatCardModule, MatButtonModule, MatSidenavModule, MatMenuModule, MatInputModule,
     MatCheckboxModule, MatToolbarModule, MatGridListModule,
-    MatDividerModule,
-
+    MatDividerModule, MatListModule, MatRadioModule
   ],
 })
 export class AppMaterialModule {
