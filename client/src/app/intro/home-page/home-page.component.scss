@@ -9,16 +9,18 @@ mdb-carousel-item{
   justify-content: center;
 }
 
-*{
-  font-weight:600;
-}
-
 .carusel-container{
-  padding-top:2.25rem;
+  padding-top:6.25rem;
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 25px;
+  color:#566070;
+  font-weight:600;
+}
+
+h5{
+  font-weight:600;
 }
 
 .carousel-caption{
@@ -30,7 +32,6 @@ h1 {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
 }
 
 .click-next div {
