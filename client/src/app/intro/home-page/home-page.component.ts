@@ -17,6 +17,7 @@ export class HomePageComponent{
         loop: true,
       },
       title: 'לטוס לחו"ל',
+      whiteMode:true
     },
     {
       options: {
@@ -24,6 +25,7 @@ export class HomePageComponent{
         loop: true,
       },
       title: "ללמוד",
+      whiteMode:true
     },
     {
       options: {
@@ -32,6 +34,7 @@ export class HomePageComponent{
         loop: true,
       },
       title: "לשפץ",
+      whiteMode:false
     },
     {
       options: {
@@ -39,6 +42,7 @@ export class HomePageComponent{
         loop: true,
       },
       title: "לעזור",
+      whiteMode:true
     },
     {
       options: {
@@ -46,6 +50,8 @@ export class HomePageComponent{
         loop: true,
       },
       title: "לסגור חוב",
+      whiteMode:false
+
     },
     {
       options: {
@@ -53,6 +59,7 @@ export class HomePageComponent{
         loop: true,
       },
       title: "לפתוח עסק",
+      whiteMode:true
     },
     {
       options: {
@@ -60,6 +67,7 @@ export class HomePageComponent{
         loop: true,
       },
       title: "חלום אחר",
+      whiteMode:false
     },
   ];
 
@@ -68,7 +76,6 @@ export class HomePageComponent{
       path: "/assets/lotties/dots.json",
       loop: true,
     },
-    title: "המשך",
   };
 
   clickSlider: Slider = {
@@ -76,7 +83,6 @@ export class HomePageComponent{
       path: "/assets/lotties/2910-hand-tap.json",
       loop: true,
     },
-    title: "המשך",
   };
 
   animationCreated(animationItem: AnimationItem): void {
@@ -85,6 +91,5 @@ export class HomePageComponent{
 
   onNext(){
     this.next.emit();
-    alert('kjdfksdjfs')
   }
 }

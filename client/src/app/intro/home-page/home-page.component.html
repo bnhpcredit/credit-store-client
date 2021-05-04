@@ -12,7 +12,7 @@
     <ng-lottie [options]="slider.options" (animationCreated)="animationCreated($event)"></ng-lottie>
   </div>
     <div class="carousel-caption">
-      <h5>{{slider.title}}</h5>
+      <h5 [ngStyle]="{'color':slider?.whiteMode ? 'white' : 'black' }">{{slider.title}}</h5>
     </div>
   </mdb-carousel-item>
 </mdb-carousel>
@@ -20,19 +20,14 @@
   <div>
   <div class="dots">
     <div class="d-flex align-items-center">
-      <ng-lottie  [options]="dotsSlider.options" (animationCreated)="animationCreated($event)"></ng-lottie>
+      <ng-lottie [options]="dotsSlider.options" (animationCreated)="animationCreated($event)"></ng-lottie>
   </div>
   </div>
+</div>
+</div>
 </div>
 <div *ngIf="mouseover" class="click-next">
   <div class="d-flex align-items-center">
     <ng-lottie  [options]="clickSlider.options" (animationCreated)="animationCreated($event)"></ng-lottie>
   </div>
 </div>
-</div>
-</div>
-
-
-
-
-
