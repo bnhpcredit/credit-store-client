@@ -19,7 +19,7 @@ export class AppComponent implements OnDestroy {
   screenStage = ScreenStages.Intro;
 
   constructor(private appService: AppService, private otp: CreditOtpService) {
-    this.otp.get({phone: '1234', otp: '1234'}).subscribe(res => console.log(res))
+    this.otp.get({phone: '1234', otp: '1234'}).subscribe(res => console.log(res));
   }
 
   userForm = new FormGroup({
