@@ -3,6 +3,7 @@ export enum ScreenStages {
   IdNumber,
   Phone,
   Otp,
+  OffersLis,
   Queries,
   LoanDetails
 }

@@ -16,6 +16,7 @@ import { HomePageComponent } from './intro/home-page/home-page.component';
 import { MdbModule } from 'mdb-angular-ui-kit';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LottieModule } from 'ngx-lottie';
+import { OffersListModule } from "./offers-list/offers-list.module";
 export function playerFactory() {
   return import('lottie-web');
 }
@@ -25,20 +26,20 @@ export function playerFactory() {
     HomePageComponent
 
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    AppMaterialModule,
-    BrowserAnimationsModule,
-    LottieModule.forRoot({
-      player: playerFactory,
-      useCache: true
-    }),
-    IntroModule, IdNumberModule, OtpModule, QueriesModule, LoanDetailsModule, MdbModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        AppMaterialModule,
+        BrowserAnimationsModule,
+        LottieModule.forRoot({
+            player: playerFactory,
+            useCache: true
+        }),
+        IntroModule, IdNumberModule, OtpModule, QueriesModule, LoanDetailsModule, MdbModule, OffersListModule
+    ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
