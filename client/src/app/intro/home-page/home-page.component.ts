@@ -6,10 +6,10 @@ import { Slider } from "./slider.model";
   templateUrl: "./home-page.component.html",
   styleUrls: ["./home-page.component.scss"],
 })
-export class HomePageComponent{
+export class HomePageComponent {
   @Output() next = new EventEmitter<void>();
-
   mouseover = false;
+
   sliders: Slider[] = [
     {
       options: {
@@ -17,7 +17,6 @@ export class HomePageComponent{
         loop: true,
       },
       title: 'לטוס לחו"ל',
-      whiteMode:true
     },
     {
       options: {
@@ -25,16 +24,13 @@ export class HomePageComponent{
         loop: true,
       },
       title: "ללמוד",
-      whiteMode:true
     },
     {
       options: {
-        path:
-          "/assets/lotties/24185-buying-a-property-ed-najarro-painter2.json",
+        path: "/assets/lotties/24185-buying-a-property-ed-najarro-painter2.json",
         loop: true,
       },
       title: "לשפץ",
-      whiteMode:false
     },
     {
       options: {
@@ -42,7 +38,6 @@ export class HomePageComponent{
         loop: true,
       },
       title: "לעזור",
-      whiteMode:true
     },
     {
       options: {
@@ -50,8 +45,6 @@ export class HomePageComponent{
         loop: true,
       },
       title: "לסגור חוב",
-      whiteMode:false
-
     },
     {
       options: {
@@ -59,7 +52,6 @@ export class HomePageComponent{
         loop: true,
       },
       title: "לפתוח עסק",
-      whiteMode:true
     },
     {
       options: {
@@ -67,7 +59,6 @@ export class HomePageComponent{
         loop: true,
       },
       title: "חלום אחר",
-      whiteMode:false
     },
   ];
 
@@ -89,7 +80,7 @@ export class HomePageComponent{
     console.log(animationItem);
   }
 
-  onNext(){
+  onNext() {
     this.next.emit();
   }
 }
