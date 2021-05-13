@@ -1,0 +1,4 @@
+{
+    "appService.deploySubpath": ".",
+    "appService.defaultWebAppToDeploy": "/subscriptions/c1d169fa-9aa1-4e2c-b9ef-bfc658d54169/resourceGroups/Hackathon-Team-1/providers/Microsoft.Web/sites/credit-store-client1"
+}

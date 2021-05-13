@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Arimo:wght@500&family=Bellefair&family=Poppins:wght@200&family=Roboto&family=Rubik:wght@400;600&display=swap');
 
 mdb-carousel-item{
-   margin:auto;
+  // margin:auto;
 }
 
 .lottie{
@@ -35,13 +35,16 @@ h5{
 }
 
 .click-next div {
+  position: fixed;
   width: 100px;
   height: 100px;
-  position: relative;
-  bottom: 74px;
+  //position: relative;
+ // bottom: 74px;
 }
 
-.dots div {
+.dots div  {
+  position: fixed;
+  bottom: 0;
   width: 200px;
   height: 200px;
 }
