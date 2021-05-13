@@ -1,34 +1,47 @@
 <div class="carusel-container" (click)="onNext()" style="cursor: pointer">
-  <h1 (mouseout)="mouseover=false" style="text-align: center;">מה בא לך?</h1>
-<div>
-<mdb-carousel
-[controls]="true"
-[indicators]="false"
-[interval]="2000"
-[dark]="true"
->
-  <mdb-carousel-item (mouseover)="mouseover=true" *ngFor="let slider of sliders; let i = index">
-    <div class="lottie d-flex align-items-center">
-    <ng-lottie [options]="slider.options" (animationCreated)="animationCreated($event)"></ng-lottie>
-  </div>
-    <div class="carousel-caption">
-      <h5 [ngStyle]="{'color':slider?.whiteMode ? 'white' : 'black' }">{{slider.title}}</h5>
-    </div>
-  </mdb-carousel-item>
-</mdb-carousel>
-<div>
+  <h1 class="carousel-title" (mouseout)="mouseover = false" style="text-align: center">מה בא לך?</h1>
   <div>
-</div>
-</div>
-</div>
-<div class="dots">
-  <div class="d-flex align-items-center">
-    <ng-lottie [options]="dotsSlider.options" (animationCreated)="animationCreated($event)"></ng-lottie>
-</div>
-</div>
-<div *ngIf="mouseover" class="click-next">
-  <div class="d-flex align-items-center">
-    <ng-lottie  [options]="clickSlider.options" (animationCreated)="animationCreated($event)"></ng-lottie>
+    <mdb-carousel
+      [controls]="false"
+      [indicators]="false"
+      [interval]="2000"
+      [dark]="true"
+    >
+      <mdb-carousel-item
+        (mouseover)="mouseover = true"
+        *ngFor="let slider of sliders; let i = index"
+      >
+        <div class="lottie d-flex align-items-center">
+          <ng-lottie
+            [options]="slider.options"
+            (animationCreated)="animationCreated($event)"
+          ></ng-lottie>
+        </div>
+        <div class="carousel-caption">
+          <h5 class="carousel-title" [ngStyle]="{ color: slider?.whiteMode ? 'white' : 'black' }">
+            {{ slider.title }}
+          </h5>
+        </div>
+      </mdb-carousel-item>
+    </mdb-carousel>
+    <div>
+      <div></div>
+    </div>
+  </div>
+  <div class="dots">
+    <div class="d-flex align-items-center">
+      <ng-lottie
+        [options]="dotsSlider.options"
+        (animationCreated)="animationCreated($event)"
+      ></ng-lottie>
+    </div>
+  </div>
+  <div *ngIf="mouseover" class="click-next">
+    <div class="d-flex align-items-center">
+      <ng-lottie
+        [options]="clickSlider.options"
+        (animationCreated)="animationCreated($event)"
+      ></ng-lottie>
+    </div>
   </div>
 </div>
-

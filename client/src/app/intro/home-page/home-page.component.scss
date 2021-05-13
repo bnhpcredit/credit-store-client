@@ -1,33 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@500&family=Bellefair&family=Poppins:wght@200&family=Roboto&family=Rubik:wght@400;600&display=swap');
-
-mdb-carousel-item{
+@import url("https://fonts.googleapis.com/css2?family=Arimo:wght@500&family=Bellefair&family=Poppins:wght@200&family=Roboto&family=Rubik:wght@400;600&display=swap");
+$title-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1),
+  0px 18px 23px rgba(0, 0, 0, 0.1);
+mdb-carousel-item {
   // margin:auto;
+  background-color: white;
 }
 
-.lottie{
+mdb-carousel {
+  background-color: white;
+}
+
+.carusel-container {
+  //background-color: white;
+  margin-top: 4.25rem;
+}
+.lottie {
   display: flex;
   justify-content: center;
 }
 
-.carusel-container{
-  padding-top:6.25rem;
-}
-
 h1 {
   font-size: 25px;
-  color:#566070;
-  font-weight:600;
+  color: black;
+  margin-bottom: 2rem;
+}
+.carousel-title {
+  font-weight: 600;
+  text-shadow: $title-shadow;
 }
 
-h5{
-  font-weight:600;
-}
-
-.carousel-caption{
+.carousel-caption {
   font-size: 20px;
 }
 
-.click-next, .dots{
+.click-next,
+.dots {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,15 +45,11 @@ h5{
   position: fixed;
   width: 100px;
   height: 100px;
-  //position: relative;
- // bottom: 74px;
 }
 
-.dots div  {
+.dots div {
   position: fixed;
   bottom: 0;
   width: 200px;
   height: 200px;
 }
-
-
