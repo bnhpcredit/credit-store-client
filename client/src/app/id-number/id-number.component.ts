@@ -2,6 +2,7 @@ import {ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output} from '
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { delay } from 'rxjs/operators';
+import { AppService } from '../app.service';
 import {StateStoreService} from '../utils/state/state-store.service';
 
 @Component({
@@ -28,7 +29,7 @@ export class IdNumberComponent implements OnInit {
     return this.frmStepOne.get(name) as FormControl;
   }
 
-  constructor(private formBuilder: FormBuilder, private stateStore: StateStoreService) { }
+  constructor(private appService: AppService ,private formBuilder: FormBuilder, private stateStore: StateStoreService) { }
 
   ngOnInit(): void {
     this.createForm();
@@ -46,11 +47,11 @@ export class IdNumberComponent implements OnInit {
 
 
   onSubmit() {
-    console.log(this.frmStepOne.valid)
     if (this.frmStepOne.valid) {
       this.stateStore.name.update(this.frmStepOne.get('name').value);
       this.stateStore.idNumber.update(this.frmStepOne.get('idNumber').value);
       this.stateStore.phone.update(this.frmStepOne.get('phone').value);
+      this.appService.sendOtp();
       this.next.emit();
     }
   }

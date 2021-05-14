@@ -4,6 +4,7 @@ import {Occupation} from "../utils/models/occupation.enum";
 import {Accommodation} from "../utils/models/accommodation.enum";
 import {StateStoreService} from "../utils/state/state-store.service";
 import { Observable, BehaviorSubject } from 'rxjs';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-queries',
@@ -63,7 +64,5 @@ export class QueriesComponent implements OnInit {
     }
   }
 }
-function delay(arg0: number): import("rxjs").OperatorFunction<FormGroup, FormGroup> {
-  throw new Error('Function not implemented.');
-}
+
 

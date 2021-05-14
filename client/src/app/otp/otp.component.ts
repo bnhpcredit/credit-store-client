@@ -61,13 +61,13 @@ export class OtpComponent implements OnInit {
   }
 
   onSubmit() {
-    alert('onSubmit')
     this.isSubmitted = true;
     if (this.frmStepTwo.valid) {
-      console.log("yessssssssssss")
       this.next.emit();
+      console.log("valid")
+
     }else{
-      console.log("noooooooooooooooooo")
+      console.log("not valid")
     }
   }
 
