@@ -77,7 +77,7 @@ export class HomePageComponent {
   };
 
   animationCreated(animationItem: AnimationItem): void {
-    console.log(animationItem);
+   // console.log(animationItem);
   }
 
   onNext() {

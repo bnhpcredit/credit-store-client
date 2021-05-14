@@ -46,6 +46,7 @@ export class IdNumberComponent implements OnInit {
 
 
   onSubmit() {
+    console.log(this.frmStepOne.valid)
     if (this.frmStepOne.valid) {
       this.stateStore.name.update(this.frmStepOne.get('name').value);
       this.stateStore.idNumber.update(this.frmStepOne.get('idNumber').value);

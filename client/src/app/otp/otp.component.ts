@@ -3,6 +3,7 @@ import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, 
 import {StateStoreService} from '../utils/state/state-store.service';
 import {AppService} from '../app.service';
 import { Observable, BehaviorSubject } from 'rxjs';
+import { delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-otp',
@@ -32,7 +33,6 @@ export class OtpComponent implements OnInit {
   ngOnInit(): void {
     this.createForm();
     this.myFrmStepTwo(this.frmStepTwo);
-
     this.frmStepTwo$ = this.myFrmStepTwoListener$.pipe(delay(0));
   }
 
@@ -55,14 +55,19 @@ export class OtpComponent implements OnInit {
         return null;
       }
       const otpValid = this.stateStore.otp.value === +value;
+      console.log("otpValid " + otpValid);
       return !otpValid ? {otpValid : true} : null;
     };
   }
 
   onSubmit() {
+    alert('onSubmit')
     this.isSubmitted = true;
     if (this.frmStepTwo.valid) {
+      console.log("yessssssssssss")
       this.next.emit();
+    }else{
+      console.log("noooooooooooooooooo")
     }
   }
 
@@ -72,7 +77,5 @@ export class OtpComponent implements OnInit {
   }
 
 }
-function delay(arg0: number): import("rxjs").OperatorFunction<FormGroup, FormGroup> {
-  throw new Error('Function not implemented.');
-}
+
 
