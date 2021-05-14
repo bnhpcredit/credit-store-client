@@ -16,7 +16,7 @@
       (mouseover)="mouseover = true"
       *ngFor="let slider of sliders; let i = index"
     >
-      <div class="lottie d-flex align-items-center">
+      <div class="lottie d-flex align-items-center" >
         <ng-lottie
           [options]="slider.options"
           (animationCreated)="animationCreated($event)"

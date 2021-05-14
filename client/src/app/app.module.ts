@@ -17,13 +17,18 @@ import { MdbModule } from 'mdb-angular-ui-kit';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LottieModule } from 'ngx-lottie';
 import { OffersListModule } from "./offers-list/offers-list.module";
+import { StepperComponent } from './stepper/stepper.component';
+import { MatNativeDateModule } from '@angular/material/core';
+
+
 export function playerFactory() {
   return import('lottie-web');
 }
 @NgModule({
   declarations: [
     AppComponent,
-    HomePageComponent
+    HomePageComponent,
+    StepperComponent
 
   ],
     imports: [
@@ -32,6 +37,8 @@ export function playerFactory() {
         ReactiveFormsModule,
         HttpClientModule,
         BrowserAnimationsModule,
+        HttpClientModule,
+        MatNativeDateModule,
         AppMaterialModule,
         BrowserAnimationsModule,
         LottieModule.forRoot({
@@ -41,6 +48,7 @@ export function playerFactory() {
         IntroModule, IdNumberModule, OtpModule, QueriesModule, LoanDetailsModule, MdbModule, OffersListModule
     ],
   providers: [httpInterceptorProviders],
+  entryComponents: [StepperComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

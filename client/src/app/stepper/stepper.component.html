@@ -1,0 +1,15 @@
+<!-- <router-outlet></router-outlet> -->
+
+<mat-horizontal-stepper linear #stepper>
+  <mat-step [stepControl]="frmStepOne">
+    <ng-template matStepLabel>Step One Details</ng-template>
+    <app-id-number #stepOne></app-id-number>
+    <!-- <app-first-step #stepOne></app-first-step> -->
+  </mat-step>
+  <!-- <mat-step [stepControl]="(frmStepTwo | async)">
+		<ng-template matStepLabel>Step Two Details</ng-template>
+		<app-second-step #stepTwo></app-second-step>
+	</mat-step> -->
+</mat-horizontal-stepper>
+
+

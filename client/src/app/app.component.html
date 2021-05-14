@@ -5,14 +5,16 @@
     </span>
   </mat-toolbar>
 
-  <div class="app-content" [ngSwitch]="screenStage">
-    <app-home-page *ngSwitchCase="screenStages.Intro" (next)="showStage(screenStages.IdNumber)"></app-home-page>
-    <app-id-number *ngSwitchCase="screenStages.IdNumber" (next)="showStage(screenStages.Otp)"></app-id-number>
+  <!-- <div class="app-content" [ngSwitch]="screenStage"> -->
+    <app-home-page *ngIf="!displayStepper" (next)="displayStepper=true"></app-home-page>
+    <!-- <app-id-number *ngSwitchCase="screenStages.IdNumber" (next)="showStage(screenStages.Otp)"></app-id-number>
     <app-otp *ngSwitchCase="screenStages.Otp" (next)="showStage(screenStages.Queries)"></app-otp>
     <app-queries *ngSwitchCase="screenStages.Queries" (next)="showStage(screenStages.OffersLis)"></app-queries>
     <app-offers-list *ngSwitchCase="screenStages.OffersLis" (next)="showStage(screenStages.LoanDetails)"></app-offers-list>
-    <app-loan-details *ngSwitchCase="screenStages.LoanDetails"></app-loan-details>
-  </div>
+    <app-loan-details *ngSwitchCase="screenStages.LoanDetails"></app-loan-details> -->
+  <!-- </div> -->
+  <app-stepper *ngIf="displayStepper"></app-stepper>
+
 </mat-sidenav-container>
 
 

@@ -10,14 +10,15 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import {MatRadioModule} from '@angular/material/radio';
-
+import {CdkStepperModule} from '@angular/cdk/stepper';
+import {MatStepperModule} from '@angular/material/stepper';
 @NgModule({
   imports: [
   ],
   exports: [
     MatCardModule, MatButtonModule, MatSidenavModule, MatMenuModule, MatInputModule,
     MatCheckboxModule, MatToolbarModule, MatGridListModule,
-    MatDividerModule, MatListModule, MatRadioModule
+    MatDividerModule, MatListModule, MatRadioModule,CdkStepperModule,MatStepperModule
   ],
 })
 export class AppMaterialModule {

@@ -1,12 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {StateStoreService} from './utils/state/state-store.service';
+import { Subject } from 'rxjs';
 let mockOtp = 1;
 @Injectable({
   providedIn: 'root'
 })
 export class AppService {
+  subject = new Subject<any>();
 
+
+  sendForm(form, step) {
+    this.subject.next({ form, step });
+  }
   constructor(private http: HttpClient, private stateStore: StateStoreService) { }
 
   rootURL = '/api';

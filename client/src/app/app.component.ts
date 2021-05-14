@@ -17,6 +17,11 @@ export class AppComponent implements OnDestroy {
   @ViewChild(MatSidenav) sidenav;
   screenStages = ScreenStages;
   screenStage = ScreenStages.Intro;
+  displayStepper = false;
+
+  onDisplayStepper(){
+    this.displayStepper = true;
+  }
 
   constructor(private appService: AppService, private otp: CreditOtpService) {
     this.otp.get({phone: '1234', otp: '1234'}).subscribe(res => console.log(res));

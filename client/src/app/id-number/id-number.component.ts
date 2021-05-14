@@ -1,5 +1,7 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { delay } from 'rxjs/operators';
 import {StateStoreService} from '../utils/state/state-store.service';
 
 @Component({
@@ -12,6 +14,16 @@ export class IdNumberComponent implements OnInit {
   @Output() next = new EventEmitter<void>();
   formGroup: FormGroup;
   titleAlert = 'שדה זה נדרש';
+  frmStepOne: FormGroup;
+  frmStepOne$: Observable<FormGroup>;
+
+  private myFrmStepOne$ = new BehaviorSubject<FormGroup>(null);
+  myFrmStepOneListener$: Observable<
+    FormGroup
+  > = this.myFrmStepOne$.asObservable();
+  myFrmStepOne(form: FormGroup) {
+    this.myFrmStepOne$.next(form);
+  }
 
   formControl(name: string) {
     return this.formGroup.get(name) as FormControl;
@@ -21,6 +33,8 @@ export class IdNumberComponent implements OnInit {
 
   ngOnInit(): void {
     this.createForm();
+    this.myFrmStepOne(this.frmStepOne);
+    this.frmStepOne$ = this.myFrmStepOneListener$.pipe(delay(0));
   }
 
   createForm() {
