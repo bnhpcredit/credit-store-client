@@ -6,6 +6,7 @@ import { takeUntil } from 'rxjs/operators';
 import { AppService } from '../app.service';
 import { IdNumberComponent } from '../id-number/id-number.component';
 import { OtpComponent } from '../otp/otp.component';
+import { QueriesComponent } from '../queries/queries.component';
 import { ScreenStages } from '../screen-stages.enum';
 import { CreditOtpService } from '../services/credit-otp/credit-otp.service';
 
@@ -14,24 +15,13 @@ import { CreditOtpService } from '../services/credit-otp/credit-otp.service';
   templateUrl: './stepper.component.html',
   styleUrls: ['./stepper.component.scss']
 })
-export class StepperComponent implements OnInit {
+export class StepperComponent  {
 
 
 
   // @ViewChild('stepTwo') stepTwoComponent: SecondStepComponent;
-  frmStep1;
-  frmStep2;
-  ngOnInit(): void {
-    this.appService.subject.subscribe(data => {
-      if (data.step === 1) {
-        console.log(data.form.value);
-        this.frmStep1 = data.form;
-      } else {
-        console.log(data.form.value);
-        this.frmStep1 = data.form;
-      }
-    });
-  }
+
+
   title = 'mat-stepper';
 
   constructor(private appService: AppService) {}
@@ -44,6 +34,11 @@ export class StepperComponent implements OnInit {
 
   get frmStepTwo() {
     return this.stepTwoComponent ? this.stepTwoComponent.frmStepTwo$ : null;
+  }
+  @ViewChild('stepThree') stepThreeComponent: QueriesComponent;
+
+  get frmStepThree() {
+    return this.stepThreeComponent ? this.stepThreeComponent.frmStepThree$ : null;
   }
 
 }

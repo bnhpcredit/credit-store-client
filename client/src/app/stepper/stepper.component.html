@@ -9,10 +9,10 @@
 		<ng-template matStepLabel>Step Two Details</ng-template>
 		<app-otp #stepTwo></app-otp>
 	</mat-step>
-  <!-- <mat-step [stepControl]="(frmStepThree | async)">
-		<ng-template matStepLabel>Step Two Details</ng-template> -->
-		<!-- <app-otp #stepTwo></app-otp> -->
-	<!-- </mat-step> -->
+  <mat-step [stepControl]="(frmStepThree | async)">
+		<ng-template matStepLabel>Step Two Details</ng-template>
+    <app-queries #stepThree></app-queries>
+ </mat-step>
 </mat-vertical-stepper>
 
 

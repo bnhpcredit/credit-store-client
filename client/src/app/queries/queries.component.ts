@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Occupation} from "../utils/models/occupation.enum";
 import {Accommodation} from "../utils/models/accommodation.enum";
 import {StateStoreService} from "../utils/state/state-store.service";
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-queries',
@@ -12,21 +13,34 @@ import {StateStoreService} from "../utils/state/state-store.service";
 })
 export class QueriesComponent implements OnInit {
   @Output() next = new EventEmitter<void>();
-  formGroup: FormGroup;
   occupations = Occupation;
   accommodations = Accommodation;
   titleAlert = 'שדה זה נדרש';
   isSubmitted = false;
+
+  frmStepThree: FormGroup;
+  frmStepThree$: Observable<FormGroup>;
+
+  private myFrmStepThree$ = new BehaviorSubject<FormGroup>(null);
+  myFrmStepThreeListener$: Observable<
+    FormGroup
+  > = this.myFrmStepThree$.asObservable();
+  myFrmStepThree(form: FormGroup) {
+    this.myFrmStepThree$.next(form);
+  }
+
 
   constructor(private formBuilder: FormBuilder,
               public stateStore: StateStoreService) { }
 
   ngOnInit(): void {
     this.createForm();
+    this.myFrmStepThree(this.frmStepThree);
+    this.frmStepThree$ = this.myFrmStepThreeListener$.pipe(delay(0));
   }
 
   createForm() {
-    this.formGroup = this.formBuilder.group({
+    this.frmStepThree = this.formBuilder.group({
       occupation: [null,
         [Validators.required]
       ],
@@ -37,15 +51,19 @@ export class QueriesComponent implements OnInit {
   }
 
   formControl(name: string) {
-    return this.formGroup.get(name) as FormControl;
+    return this.frmStepThree.get(name) as FormControl;
   }
 
   nextStage() {
     this.isSubmitted = true;
-    if (this.formGroup.valid) {
+    if (this.frmStepThree.valid) {
       this.stateStore.occupation = this.formControl('occupation').value;
       this.stateStore.accommodation = this.formControl('accommodation').value;
       this.next.emit();
     }
   }
 }
+function delay(arg0: number): import("rxjs").OperatorFunction<FormGroup, FormGroup> {
+  throw new Error('Function not implemented.');
+}
+
