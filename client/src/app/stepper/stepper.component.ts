@@ -17,6 +17,8 @@ import { CreditOtpService } from '../services/credit-otp/credit-otp.service';
 export class StepperComponent implements OnInit {
 
 
+
+  // @ViewChild('stepTwo') stepTwoComponent: SecondStepComponent;
   frmStep1;
   frmStep2;
   ngOnInit(): void {
@@ -34,5 +36,14 @@ export class StepperComponent implements OnInit {
 
   constructor(private appService: AppService) {}
 
+  @ViewChild('stepOne') stepOneComponent: IdNumberComponent;
+  get frmStepOne() {
+    return this.stepOneComponent ? this.stepOneComponent.frmStepOne$ : null;
+  }
+  @ViewChild('stepTwo') stepTwoComponent: OtpComponent;
+
+  get frmStepTwo() {
+    return this.stepTwoComponent ? this.stepTwoComponent.frmStepTwo$ : null;
+  }
 
 }

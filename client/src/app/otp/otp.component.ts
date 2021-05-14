@@ -2,6 +2,7 @@ import {ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output} from '
 import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators} from '@angular/forms';
 import {StateStoreService} from '../utils/state/state-store.service';
 import {AppService} from '../app.service';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-otp',
@@ -11,8 +12,18 @@ import {AppService} from '../app.service';
 })
 export class OtpComponent implements OnInit {
   @Output() next = new EventEmitter<void>();
-  formGroup: FormGroup;
   isSubmitted = false;
+
+  frmStepTwo: FormGroup;
+  frmStepTwo$: Observable<FormGroup>;
+
+  private myFrmStepTwo$ = new BehaviorSubject<FormGroup>(null);
+  myFrmStepTwoListener$: Observable<
+    FormGroup
+  > = this.myFrmStepTwo$.asObservable();
+  myFrmStepTwo(form: FormGroup) {
+    this.myFrmStepTwo$.next(form);
+  }
 
   constructor(private formBuilder: FormBuilder,
               public stateStore: StateStoreService,
@@ -20,10 +31,13 @@ export class OtpComponent implements OnInit {
 
   ngOnInit(): void {
     this.createForm();
+    this.myFrmStepTwo(this.frmStepTwo);
+
+    this.frmStepTwo$ = this.myFrmStepTwoListener$.pipe(delay(0));
   }
 
   createForm() {
-    this.formGroup = this.formBuilder.group({
+    this.frmStepTwo = this.formBuilder.group({
       otpReceived: [null,
         [Validators.required, this.otpOK()]
       ],
@@ -31,7 +45,7 @@ export class OtpComponent implements OnInit {
   }
 
   formControl(name: string) {
-    return this.formGroup.get(name) as FormControl;
+    return this.frmStepTwo.get(name) as FormControl;
   }
 
   otpOK(): ValidatorFn {
@@ -47,14 +61,18 @@ export class OtpComponent implements OnInit {
 
   onSubmit() {
     this.isSubmitted = true;
-    if (this.formGroup.valid) {
+    if (this.frmStepTwo.valid) {
       this.next.emit();
     }
   }
 
   resendOtp() {
-    this.formGroup.reset();
+    this.frmStepTwo.reset();
     this.appService.sendOtp();
   }
 
 }
+function delay(arg0: number): import("rxjs").OperatorFunction<FormGroup, FormGroup> {
+  throw new Error('Function not implemented.');
+}
+

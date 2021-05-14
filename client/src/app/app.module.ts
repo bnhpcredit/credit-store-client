@@ -19,6 +19,7 @@ import { LottieModule } from 'ngx-lottie';
 import { OffersListModule } from "./offers-list/offers-list.module";
 import { StepperComponent } from './stepper/stepper.component';
 import { MatNativeDateModule } from '@angular/material/core';
+import { OtpComponent } from './otp/otp.component';
 
 
 export function playerFactory() {
@@ -28,7 +29,7 @@ export function playerFactory() {
   declarations: [
     AppComponent,
     HomePageComponent,
-    StepperComponent
+    StepperComponent,
 
   ],
     imports: [
