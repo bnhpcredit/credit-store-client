@@ -1,10 +1,9 @@
-import {Component, OnDestroy, ViewChild, ViewEncapsulation} from '@angular/core';
+import {Component, OnDestroy, ViewEncapsulation} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AppService} from './app.service';
 import {takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import {ScreenStages} from './screen-stages.enum';
-import {MatSidenav} from '@angular/material/sidenav';
 import { CreditOtpService } from './services/credit-otp/credit-otp.service';
 
 @Component({
@@ -14,7 +13,6 @@ import { CreditOtpService } from './services/credit-otp/credit-otp.service';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnDestroy {
-  @ViewChild(MatSidenav) sidenav;
   screenStages = ScreenStages;
   screenStage = ScreenStages.Intro;
 
@@ -32,13 +30,10 @@ export class AppComponent implements OnDestroy {
 
   destroy$: Subject<boolean> = new Subject<boolean>();
 
-  showStage(screenStage: ScreenStages, sidenavToggle = false) {
+  showStage(screenStage: ScreenStages) {
     this.screenStage = screenStage;
     if (screenStage === ScreenStages.Otp) {
       this.appService.sendOtp();
-    }
-    if (sidenavToggle) {
-      this.sidenav.toggle();
     }
   }
 

@@ -1,5 +1,4 @@
-<mat-sidenav-container>
-  <mat-toolbar color="primary">
+  <mat-toolbar>
     <span class="title">
       בנק הפועלים
     </span>
@@ -13,7 +12,6 @@
     <app-offers-list *ngSwitchCase="screenStages.OffersLis" (next)="showStage(screenStages.LoanDetails)"></app-offers-list>
     <app-loan-details *ngSwitchCase="screenStages.LoanDetails"></app-loan-details>
   </div>
-</mat-sidenav-container>
 
 
 
