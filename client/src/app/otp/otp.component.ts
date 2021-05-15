@@ -85,7 +85,7 @@ export class OtpComponent implements OnInit {
     this.appService.sendOtp();
   }
 
-  dotsSlider: AnimationOptions = {
+  spinner: AnimationOptions = {
       path: "/assets/lotties/spinner.json",
       loop: true,
   };

@@ -18,15 +18,15 @@
 
 <mat-vertical-stepper linear #stepper>
 	<mat-step state="done" [stepControl]="(frmStepOne | async)">
-		<ng-template matStepLabel>Step One Details</ng-template>
+		<!-- <ng-template matStepLabel>Step One Details</ng-template> -->
 		<app-id-number #stepOne></app-id-number>
 	</mat-step>
 	<mat-step state="done" [stepControl]="(frmStepTwo | async)">
-		<ng-template matStepLabel>Step Two Details</ng-template>
+		<!-- <ng-template matStepLabel>Step Two Details</ng-template> -->
 		<app-otp #stepTwo></app-otp>
 	</mat-step>
   <mat-step [stepControl]="(frmStepThree | async)">
-		<ng-template matStepLabel>Step Two Details</ng-template>
+		<!-- <ng-template matStepLabel>Step Two Details</ng-template> -->
     <app-queries #stepThree></app-queries>
  </mat-step>
 </mat-vertical-stepper>

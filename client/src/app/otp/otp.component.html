@@ -1,39 +1,60 @@
-
-
-
 <form [formGroup]="frmStepTwo" (ngSubmit)="onSubmit()" autocomplete="off">
-  <mat-card >
+  <mat-card>
     <mat-card-header>
       <mat-card-title> עוד ממש קצת... </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <div class="dots" *ngIf="!(stateStore.otp.value$ | async);else showContent">
+      <div
+        class="spinner"
+        *ngIf="!(stateStore.otp.value$ | async); else showContent"
+      >
         <div class="d-flex align-items-center">
-          <ng-lottie
-            [options]="dotsSlider"
-          ></ng-lottie>
+          <ng-lottie [options]="spinner"></ng-lottie>
         </div>
       </div>
       <ng-template #showContent>
-      <div>
-        <mat-form-field class="example-full-width" appearance="outline">
-          <mat-label> מהו הקוד שנשלח לך לנייד מספר {{stateStore.phone.value}} ?</mat-label>
-          <input type="text" matInput formControlName="otpReceived">
-          <mat-error *ngIf="!formControl('otpReceived').valid && isSubmitted">
-            הקוד שהוקלד שגוי
-          </mat-error>
-        </mat-form-field>
-      </div>
-    </ng-template>
+        <div>
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>
+              מהו הקוד שנשלח לך לנייד מספר
+              {{ stateStore.phone.value }} ?</mat-label
+            >
+            <input type="text" matInput formControlName="otpReceived" />
+            <mat-error *ngIf="!formControl('otpReceived').valid && isSubmitted">
+              הקוד שהוקלד שגוי
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </ng-template>
     </mat-card-content>
     <mat-card-actions dir="ltr">
-      <button type="submit" color="warn" matStepperNext mat-icon-button color="warn">
+      <button
+        type="submit"
+        color="warn"
+        matStepperNext
+        mat-icon-button
+        color="warn"
+        matTooltip="הבא"
+        matTooltipHideDelay="100000"
+      >
         <mat-icon>arrow_downward</mat-icon>
       </button>
-      <button matStepperPrevious mat-icon-button color="accent">
+      <button
+        matTooltip="הקודם"
+        matTooltipHideDelay="100000"
+        matStepperPrevious
+        mat-icon-button
+        color="accent"
+      >
         <mat-icon>arrow_upward</mat-icon>
       </button>
-      <button (click)="resendOtp()" mat-icon-button color="black">
+      <button
+        matTooltip="שלח שוב"
+        matTooltipHideDelay="100000"
+        (click)="resendOtp()"
+        mat-icon-button
+        color="black"
+      >
         <mat-icon>autorenew</mat-icon>
       </button>
     </mat-card-actions>
