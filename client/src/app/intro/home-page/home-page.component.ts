@@ -69,16 +69,6 @@ export class HomePageComponent {
     },
   };
 
-  clickSlider: Slider = {
-    options: {
-      path: "/assets/lotties/2910-hand-tap.json",
-      loop: true,
-    },
-  };
-
-  animationCreated(animationItem: AnimationItem): void {
-   // console.log(animationItem);
-  }
 
   onNext() {
     this.next.emit();

@@ -19,7 +19,6 @@ import { AppService } from "../app.service";
 import { Observable, BehaviorSubject } from "rxjs";
 import { delay } from "rxjs/operators";
 import { AnimationOptions } from "ngx-lottie";
-import { LottieService } from "../lottie.service";
 
 @Component({
   selector: "app-otp",
@@ -30,8 +29,6 @@ import { LottieService } from "../lottie.service";
 export class OtpComponent implements OnInit {
   @Output() next = new EventEmitter<void>();
   isSubmitted = false;
-  nextArrow: AnimationOptions;
-  sendAgain:AnimationOptions;
   frmStepTwo: FormGroup;
   frmStepTwo$: Observable<FormGroup>;
 
@@ -43,15 +40,12 @@ export class OtpComponent implements OnInit {
   }
 
   constructor(
-    private lottieService: LottieService,
     private formBuilder: FormBuilder,
     public stateStore: StateStoreService,
     private appService: AppService
   ) {}
 
   ngOnInit(): void {
-    this.nextArrow = this.lottieService.nextArrow;
-    this.sendAgain = this.lottieService.sendAgain;
     this.createForm();
     this.myFrmStepTwo(this.frmStepTwo);
     this.frmStepTwo$ = this.myFrmStepTwoListener$.pipe(delay(0));
@@ -83,9 +77,6 @@ export class OtpComponent implements OnInit {
     this.isSubmitted = true;
     if (this.frmStepTwo.valid) {
       this.next.emit();
-      console.log("valid");
-    } else {
-      console.log("not valid");
     }
   }
 
@@ -93,6 +84,11 @@ export class OtpComponent implements OnInit {
     this.frmStepTwo.reset();
     this.appService.sendOtp();
   }
+
+  dotsSlider: AnimationOptions = {
+      path: "/assets/lotties/spinner.json",
+      loop: true,
+  };
 
 
 }

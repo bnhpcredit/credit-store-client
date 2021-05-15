@@ -17,7 +17,6 @@ import { Observable, BehaviorSubject } from "rxjs";
 import { delay } from "rxjs/operators";
 import { AppService } from "../app.service";
 import { Slider } from "../intro/home-page/slider.model";
-import { LottieService } from "../lottie.service";
 import { StateStoreService } from "../utils/state/state-store.service";
 
 @Component({
@@ -48,11 +47,9 @@ export class IdNumberComponent implements OnInit {
     private appService: AppService,
     private formBuilder: FormBuilder,
     private stateStore: StateStoreService,
-    private lottieService: LottieService
   ) {}
 
   ngOnInit(): void {
-    this.nextArrow = this.lottieService.nextArrow;
     this.createForm();
     this.myFrmStepOne(this.frmStepOne);
     this.frmStepOne$ = this.myFrmStepOneListener$.pipe(delay(0));

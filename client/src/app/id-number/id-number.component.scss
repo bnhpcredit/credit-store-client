@@ -16,6 +16,7 @@
   opacity: 1 !important;
   color:#c73126;
 }
-button.mat-button.mat-icon:hover{
-  color:blue
+.spinner__loading {
+  display: flex;
+  justify-content: center;
 }
