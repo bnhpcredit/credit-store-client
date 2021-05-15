@@ -27,7 +27,13 @@
       </mat-form-field>
     </mat-card-content>
     <mat-card-actions dir="ltr">
-      <button matStepperNext mat-raised-button color="warn">המשך</button>
+      <button class="next" type="submit" matStepperNext mat-button >
+      <div class="lottie" >
+        <ng-lottie [options]="nextArrow">
+      </ng-lottie>
+      </div>
+    </button>
     </mat-card-actions>
   </mat-card>
 </form>
+

@@ -1,0 +1,19 @@
+::ng-deep .mat-step-header .mat-step-icon-state-done {
+  background-color: rgb(49, 47, 47);
+}
+.lottie {
+   width: 30%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+}
+
+.next{
+  width: 13%;
+}
+button.mat-raised-button{
+  &:hover {
+  background-color: red;
+}
+}

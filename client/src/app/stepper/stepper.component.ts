@@ -1,27 +1,26 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import { MatSidenav } from '@angular/material/sidenav';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+import { Component, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AppService } from '../app.service';
 import { IdNumberComponent } from '../id-number/id-number.component';
 import { OtpComponent } from '../otp/otp.component';
 import { QueriesComponent } from '../queries/queries.component';
-import { ScreenStages } from '../screen-stages.enum';
-import { CreditOtpService } from '../services/credit-otp/credit-otp.service';
 
 @Component({
   selector: 'app-stepper',
   templateUrl: './stepper.component.html',
-  styleUrls: ['./stepper.component.scss']
+  styleUrls: ['./stepper.component.scss'],
+  providers: [{
+    provide: STEPPER_GLOBAL_OPTIONS, useValue: {displayDefaultIndicatorType: false}
+  }]
 })
 export class StepperComponent  {
 
 
 
-  // @ViewChild('stepTwo') stepTwoComponent: SecondStepComponent;
 
-
+  completed: boolean = false;
+  state: string;
   title = 'mat-stepper';
 
   constructor(private appService: AppService) {}
@@ -39,6 +38,11 @@ export class StepperComponent  {
 
   get frmStepThree() {
     return this.stepThreeComponent ? this.stepThreeComponent.frmStepThree$ : null;
+  }
+
+  done() {
+    this.completed = true;
+    this.state = 'done';
   }
 
 }

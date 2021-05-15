@@ -1,7 +1,7 @@
 <router-outlet></router-outlet>
 
-<mat-vertical-stepper linear #stepper>
-  <mat-step [stepControl]="frmStepOne">
+ <mat-vertical-stepper linear #stepper>
+  <mat-step state="done" [stepControl]="frmStepOne">
     <ng-template matStepLabel>Step One Details</ng-template>
     <app-id-number #stepOne></app-id-number>
   </mat-step>
@@ -14,5 +14,4 @@
     <app-queries #stepThree></app-queries>
  </mat-step>
 </mat-vertical-stepper>
-
 
