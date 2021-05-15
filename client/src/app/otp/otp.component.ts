@@ -1,36 +1,57 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators} from '@angular/forms';
-import {StateStoreService} from '../utils/state/state-store.service';
-import {AppService} from '../app.service';
-import { Observable, BehaviorSubject } from 'rxjs';
-import { delay } from 'rxjs/operators';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+} from "@angular/core";
+import {
+  AbstractControl,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  ValidationErrors,
+  ValidatorFn,
+  Validators,
+} from "@angular/forms";
+import { StateStoreService } from "../utils/state/state-store.service";
+import { AppService } from "../app.service";
+import { Observable, BehaviorSubject } from "rxjs";
+import { delay } from "rxjs/operators";
+import { AnimationOptions } from "ngx-lottie";
+import { LottieService } from "../lottie.service";
 
 @Component({
-  selector: 'app-otp',
-  templateUrl: './otp.component.html',
-  styleUrls: ['./otp.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  selector: "app-otp",
+  templateUrl: "./otp.component.html",
+  styleUrls: ["./otp.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class OtpComponent implements OnInit {
   @Output() next = new EventEmitter<void>();
   isSubmitted = false;
-
+  nextArrow: AnimationOptions;
+  sendAgain:AnimationOptions;
   frmStepTwo: FormGroup;
   frmStepTwo$: Observable<FormGroup>;
 
   private myFrmStepTwo$ = new BehaviorSubject<FormGroup>(null);
-  myFrmStepTwoListener$: Observable<
-    FormGroup
-  > = this.myFrmStepTwo$.asObservable();
+  myFrmStepTwoListener$: Observable<FormGroup> =
+    this.myFrmStepTwo$.asObservable();
   myFrmStepTwo(form: FormGroup) {
     this.myFrmStepTwo$.next(form);
   }
 
-  constructor(private formBuilder: FormBuilder,
-              public stateStore: StateStoreService,
-              private appService: AppService) { }
+  constructor(
+    private lottieService: LottieService,
+    private formBuilder: FormBuilder,
+    public stateStore: StateStoreService,
+    private appService: AppService
+  ) {}
 
   ngOnInit(): void {
+    this.nextArrow = this.lottieService.nextArrow;
+    this.sendAgain = this.lottieService.sendAgain;
     this.createForm();
     this.myFrmStepTwo(this.frmStepTwo);
     this.frmStepTwo$ = this.myFrmStepTwoListener$.pipe(delay(0));
@@ -38,9 +59,7 @@ export class OtpComponent implements OnInit {
 
   createForm() {
     this.frmStepTwo = this.formBuilder.group({
-      otpReceived: [null,
-        [Validators.required, this.otpOK()]
-      ],
+      otpReceived: [null, [Validators.required, this.otpOK()]],
     });
   }
 
@@ -56,7 +75,7 @@ export class OtpComponent implements OnInit {
       }
       const otpValid = this.stateStore.otp.value === +value;
       console.log("otpValid " + otpValid);
-      return !otpValid ? {otpValid : true} : null;
+      return !otpValid ? { otpValid: true } : null;
     };
   }
 
@@ -64,10 +83,9 @@ export class OtpComponent implements OnInit {
     this.isSubmitted = true;
     if (this.frmStepTwo.valid) {
       this.next.emit();
-      console.log("valid")
-
-    }else{
-      console.log("not valid")
+      console.log("valid");
+    } else {
+      console.log("not valid");
     }
   }
 
@@ -76,6 +94,5 @@ export class OtpComponent implements OnInit {
     this.appService.sendOtp();
   }
 
+
 }
-
-

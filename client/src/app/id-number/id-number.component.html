@@ -6,34 +6,46 @@
     <mat-card-content>
       <mat-form-field class="example-full-width" appearance="outline">
         <mat-label> שם: </mat-label>
-        <input type="text" matInput placeholder="ישראל ישראלי" formControlName="name">
+        <input type="text" matInput placeholder="ישראל ישראלי" formControlName="name" required>
         <mat-error *ngIf="!formControl('name').valid && formControl('name').touched">
           {{ titleAlert }}
         </mat-error>
       </mat-form-field>
       <mat-form-field class="example-full-width" appearance="outline">
         <mat-label> תעודת זהות: </mat-label>
-        <input type="tel" matInput placeholder="012345678" formControlName="idNumber">
+        <input type="tel" matInput placeholder="012345678" formControlName="idNumber" required>
         <mat-error *ngIf="!formControl('idNumber').valid && formControl('idNumber').touched">
           {{ titleAlert }}
         </mat-error>
       </mat-form-field>
       <mat-form-field class="example-full-width" appearance="outline">
         <mat-label> מספר טלפון: </mat-label>
-        <input type="tel" matInput placeholder="0512345678" formControlName="phone">
+        <input type="tel" matInput placeholder="0512345678" formControlName="phone" required>
         <mat-error *ngIf="!formControl('phone').valid && formControl('phone').touched">
           {{ titleAlert }}
         </mat-error>
       </mat-form-field>
     </mat-card-content>
     <mat-card-actions dir="ltr">
-      <button class="next" type="submit" matStepperNext mat-button >
-      <div class="lottie" >
-        <ng-lottie [options]="nextArrow">
-      </ng-lottie>
-      </div>
-    </button>
+      <button
+      type="submit"
+      color="warn"
+      matStepperNext
+      mat-icon-button
+      color="accent"
+      matTooltip="הבא"
+      matTooltipHideDelay="100000"
+      >
+        <mat-icon>arrow_downward</mat-icon>
+      </button>
     </mat-card-actions>
   </mat-card>
 </form>
 
+<button mat-raised-button #tooltip="matTooltip"
+          matTooltip="Info about the action"
+          matTooltipHideDelay="100000"
+          aria-label="Button that displays a tooltip that hides when scrolled out of the container"
+          class="example-button">
+    Action
+  </button>

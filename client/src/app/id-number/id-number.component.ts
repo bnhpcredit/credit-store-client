@@ -27,9 +27,7 @@ import { StateStoreService } from "../utils/state/state-store.service";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IdNumberComponent implements OnInit {
-  valid(valid: any) {
-    throw new Error("Method not implemented.");
-  }
+
   @Output() next = new EventEmitter<void>();
   titleAlert = "שדה זה נדרש";
   frmStepOne: FormGroup;
@@ -66,6 +64,8 @@ export class IdNumberComponent implements OnInit {
       idNumber: [null, Validators.required],
       phone: [null, Validators.required],
     });
+
+
   }
 
   onSubmit() {
@@ -77,12 +77,7 @@ export class IdNumberComponent implements OnInit {
       this.next.emit();
     }
   }
-  animationCreated(animationItem: AnimationItem): void {
-    // console.log(animationItem);
-  }
 
-  // nextArrow: AnimationOptions = {
-  //   path: "/assets/lotties/lf30_editor_nvz11yz5.json",
-  //   loop: true,
-  // };
+
+
 }

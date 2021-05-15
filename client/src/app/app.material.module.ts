@@ -12,13 +12,17 @@ import {MatListModule} from '@angular/material/list';
 import {MatRadioModule} from '@angular/material/radio';
 import {CdkStepperModule} from '@angular/cdk/stepper';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatIconModule} from '@angular/material/icon';
+import {MatTooltipModule} from '@angular/material/tooltip';
+
 @NgModule({
   imports: [
   ],
   exports: [
     MatCardModule, MatButtonModule, MatSidenavModule, MatMenuModule, MatInputModule,
     MatCheckboxModule, MatToolbarModule, MatGridListModule,
-    MatDividerModule, MatListModule, MatRadioModule,CdkStepperModule,MatStepperModule
+    MatDividerModule, MatListModule, MatRadioModule,CdkStepperModule,MatStepperModule,
+    MatIconModule, MatTooltipModule
   ],
 })
 export class AppMaterialModule {

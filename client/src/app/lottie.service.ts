@@ -19,5 +19,12 @@ export class LottieService {
       loop: true,
     };
   }
+
+  get sendAgain() {
+    return {
+      path: "/assets/lotties/lf30_editor_6hqdsihd.json",
+      loop: true,
+    };
+  }
   constructor() {}
 }

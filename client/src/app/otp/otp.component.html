@@ -17,9 +17,17 @@
       </div>
     </mat-card-content>
     <mat-card-actions dir="ltr">
-      <button type="submit" matStepperNext mat-raised-button color="warn">המשך</button>
-      <button type="button" mat-raised-button color="accent" color="accent"(click)="resendOtp()">שלח שוב</button>
-      <button md-raised-button matStepperPrevious>Back</button>
+      <button type="submit" color="warn" matStepperNext mat-icon-button color="warn">
+        <mat-icon>arrow_downward</mat-icon>
+      </button>
+      <button matStepperPrevious mat-icon-button color="accent">
+        <mat-icon>arrow_upward</mat-icon>
+      </button>
+      <button mat-icon-button color="black">
+        <mat-icon>autorenew</mat-icon>
+      </button>
     </mat-card-actions>
   </mat-card>
 </form>
+<mat-card>
+</mat-card>

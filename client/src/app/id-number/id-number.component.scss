@@ -2,18 +2,20 @@
   background-color: rgb(49, 47, 47);
 }
 .lottie {
-   width: 30%;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   flex-direction: column;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
-.next{
+.next {
   width: 13%;
 }
-button.mat-raised-button{
-  &:hover {
-  background-color: red;
+.mat-icon:hover {
+  opacity: 1 !important;
+  color:#c73126;
 }
+button.mat-button.mat-icon:hover{
+  color:blue
 }
