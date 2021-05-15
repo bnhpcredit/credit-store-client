@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Arimo:wght@500&family=Bellefair&family=Poppins:wght@200&family=Roboto&family=Rubik:wght@400;600&display=swap");
-$title-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1),
-  0px 18px 23px rgba(0, 0, 0, 0.1);
+$title-shadow: 2px 2px 3px rgba(255,255,255,0.1);
+
 
 .carusel-container {
   padding: 2.25rem 0;
@@ -25,6 +25,7 @@ h1 {
   font-weight: 600;
   font: bold 20px;
   text-shadow: $title-shadow;
+  color:rgb(83, 83, 97)
 }
 
 .carousel-caption {
