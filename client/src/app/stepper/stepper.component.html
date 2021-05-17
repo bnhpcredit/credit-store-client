@@ -29,4 +29,12 @@
 		<!-- <ng-template matStepLabel>Step Two Details</ng-template> -->
     <app-queries #stepThree></app-queries>
  </mat-step>
+ <mat-step [stepControl]="(frmStepFour | async)">
+  <!-- <ng-template matStepLabel>Step Two Details</ng-template> -->
+  <app-offers-list #stepFour></app-offers-list>
+</mat-step>
+<mat-step [stepControl]="(frmStepFive | async)">
+  <!-- <ng-template matStepLabel>Step Two Details</ng-template> -->
+  <app-loan-details #stepFive></app-loan-details>
+</mat-step>
 </mat-vertical-stepper>

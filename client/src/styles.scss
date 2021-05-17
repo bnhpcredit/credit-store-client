@@ -69,15 +69,17 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-
 @include angular-material-theme($candy-app-theme);
 
 .btn-grad{
-   &-next{
-    background-image: linear-gradient(to right top, #ed433f, #df3a37, #d2302f, #c42627, #b71b1f);
+  background-image: linear-gradient(to right top, #ed433f, #df3a37, #d2302f, #c42627, #b71b1f);
     color:white;
-   }
+  //  &-next{
+  //   background-image: linear-gradient(to right top, #ed433f, #df3a37, #d2302f, #c42627, #b71b1f);
+  //   color:white;
+  //  }
 
-   &-prev{
-    background: #7d7a80;
-    color:white;
-   }
+  //  &-prev{
+  //   background: #e1e1e1;
+  //   color:black;
+  //  }
    text-align: center;
    transition: 0.5s;
    background-size: 200% auto;

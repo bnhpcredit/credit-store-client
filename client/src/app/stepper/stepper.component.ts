@@ -3,6 +3,8 @@ import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AppService } from '../app.service';
 import { IdNumberComponent } from '../id-number/id-number.component';
+import { LoanDetailsComponent } from '../loan-details/loan-details.component';
+import { OffersListComponent } from '../offers-list/offers-list.component';
 import { OtpComponent } from '../otp/otp.component';
 import { QueriesComponent } from '../queries/queries.component';
 
@@ -40,6 +42,17 @@ export class StepperComponent  {
     return this.stepThreeComponent ? this.stepThreeComponent.frmStepThree$ : null;
   }
 
+  @ViewChild('stepFour') stepFourComponent: OffersListComponent;
+
+  get frmStepFour() {
+    return this.stepThreeComponent ? this.stepFourComponent.frmStepFour$ : null;
+  }
+
+  @ViewChild('stepFive') stepFiveComponent: LoanDetailsComponent;
+
+  get frmStepFive() {
+    return this.stepFiveComponent ? this.stepFiveComponent.frmStepFive$ : null;
+  }
   done() {
     this.completed = true;
     this.state = 'done';
