@@ -14,17 +14,14 @@ mat-label {
   margin: 10px 0;
 }
 
-.btn-grad {
-  border-radius: 42px;
-  width: 50%;
-}
-
 .otpLottie {
   width: 200px;
   height: 200px;
 }
 
 .btn-grad {
+  border-radius: 42px;
+  width: 50%;
   &-actions {
     display: flex;
     justify-content: space-between;

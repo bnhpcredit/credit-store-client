@@ -32,7 +32,24 @@
       </section>
     </mat-card-content>
     <mat-card-actions dir="ltr">
-      <button type="submit" matStepperNext mat-raised-button color="warn">המשך</button>
+      <div class="btn-grad-actions">
+        <button
+          class="btn-grad btn-grad-next"
+          type="submit"
+          matStepperNext
+          mat-button
+        >
+          הבא
+        </button>
+        <button
+          class="btn-grad btn-grad-prev"
+          matStepperPrevious
+          type="submit"
+          mat-button
+        >
+          הקודם
+        </button>
+      </div>
     </mat-card-actions>
   </mat-card>
 </form>

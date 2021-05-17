@@ -10,5 +10,23 @@
   .mat-card-content {
     align-items: start;
   }
-
+  .btn-grad {
+    border-radius: 42px;
+    width: 50%;
+    &-actions {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3rem;
+    }
+    &-next {
+      color: white;
+      width: 50%;
+      border-radius: 42px;
+    }
+    &-prev {
+      color: white;
+      width: 50%;
+      border-radius: 42px;
+    }
+  }
 }
