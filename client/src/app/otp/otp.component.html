@@ -13,18 +13,21 @@
         </div>
       </div>
       <ng-template #showContent>
-        <div>
-          <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label>
-              מהו הקוד שנשלח לך לנייד מספר
-              {{ stateStore.phone.value }} ?</mat-label
-            >
-            <input type="text" matInput formControlName="otpReceived" />
-            <mat-error *ngIf="!formControl('otpReceived').valid && isSubmitted">
-              הקוד שהוקלד שגוי
-            </mat-error>
-          </mat-form-field>
+
+
+
+          <mat-label>
+            מהו הקוד שנשלח לך לנייד מספר
+            {{ stateStore.phone.value }} ?</mat-label
+          >
+
+          <div dir="ltr" type="password">
+          <ng-otp-input (onInputChange)="onOtpChange($event)" [config]="{length:6} "></ng-otp-input>
         </div>
+        הקוד שהוקלד
+          <mat-error *ngIf="!otp && isSubmitted">
+         שגוי
+          </mat-error>
       </ng-template>
     </mat-card-content>
     <mat-card-actions dir="ltr">
@@ -60,3 +63,4 @@
     </mat-card-actions>
   </mat-card>
 </form>
+<!-- <ng-otp-input (onInputChange)="onOtpChange($event)" [config]="{length:6} "></ng-otp-input> -->

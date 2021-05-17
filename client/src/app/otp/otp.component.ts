@@ -31,6 +31,7 @@ export class OtpComponent implements OnInit {
   isSubmitted = false;
   frmStepTwo: FormGroup;
   frmStepTwo$: Observable<FormGroup>;
+  otp:string = null;
 
   private myFrmStepTwo$ = new BehaviorSubject<FormGroup>(null);
   myFrmStepTwoListener$: Observable<FormGroup> =
@@ -67,21 +68,19 @@ export class OtpComponent implements OnInit {
       if (!value) {
         return null;
       }
+      console.log(this.stateStore.otp.value)
       const otpValid = this.stateStore.otp.value === +value;
-      console.log("otpValid " + otpValid);
       return !otpValid ? { otpValid: true } : null;
     };
   }
 
   onSubmit() {
     this.isSubmitted = true;
+    console.log(this.frmStepTwo.valid)
     if (this.frmStepTwo.valid) {
       this.next.emit();
-      console.log(' valid')
-
-    }else{
-      console.log('not valid')
     }
+    this.otp=null;
   }
 
   resendOtp() {
@@ -94,5 +93,8 @@ export class OtpComponent implements OnInit {
       loop: true,
   };
 
-
+  onOtpChange(otp){
+    this.otp = otp;
+    this.frmStepTwo.controls['otpReceived'].setValue(otp);
+  }
 }

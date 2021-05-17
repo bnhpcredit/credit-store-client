@@ -22,6 +22,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { OtpComponent } from './otp/otp.component';
 import { IdNumberComponent } from './id-number/id-number.component';
 
+import { NgOtpInputModule } from 'ng-otp-input';
 
 export function playerFactory() {
   return import('lottie-web');
@@ -39,6 +40,7 @@ export function playerFactory() {
         HttpClientModule,
         BrowserAnimationsModule,
         HttpClientModule,
+        NgOtpInputModule,
         MatNativeDateModule,
         AppMaterialModule,
         BrowserAnimationsModule,
