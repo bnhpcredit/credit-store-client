@@ -97,4 +97,10 @@ export class OtpComponent implements OnInit {
     this.otp = otp;
     this.frmStepTwo.controls['otpReceived'].setValue(otp);
   }
+
+  otpLotiie: AnimationOptions = {
+      path: "/assets/lotties/otp.json",
+      loop: true,
+  };
+
 }
