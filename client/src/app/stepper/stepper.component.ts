@@ -18,9 +18,6 @@ import { QueriesComponent } from '../queries/queries.component';
 })
 export class StepperComponent  {
 
-
-
-
   completed: boolean = false;
   state: string;
   title = 'mat-stepper';

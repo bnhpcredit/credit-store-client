@@ -1,21 +1,11 @@
 <mat-sidenav-container>
   <mat-toolbar color="primary">
-    <span class="title">
-      בנק הפועלים
-    </span>
+    <span class="title"> בנק הפועלים </span>
   </mat-toolbar>
-
-  <!-- <div class="app-content" [ngSwitch]="screenStage"> -->
-    <app-home-page *ngIf="!displayStepper" (next)="displayStepper=true"></app-home-page>
-    <!-- <app-id-number *ngSwitchCase="screenStages.IdNumber" (next)="showStage(screenStages.Otp)"></app-id-number>
-    <app-otp *ngSwitchCase="screenStages.Otp" (next)="showStage(screenStages.Queries)"></app-otp>
-    <app-queries *ngSwitchCase="screenStages.Queries" (next)="showStage(screenStages.OffersLis)"></app-queries>
-    <app-offers-list *ngSwitchCase="screenStages.OffersLis" (next)="showStage(screenStages.LoanDetails)"></app-offers-list>
-    <app-loan-details *ngSwitchCase="screenStages.LoanDetails"></app-loan-details> -->
-  <!-- </div> -->
-  <app-stepper *ngIf="displayStepper"></app-stepper>
-
+  <div *ngIf="!displayStepper; else stepper">
+    <app-home-page (next)="displayStepper = true"></app-home-page>
+  </div>
+  <ng-template #stepper>
+    <app-stepper></app-stepper>
+  </ng-template>
 </mat-sidenav-container>
-
-
-
