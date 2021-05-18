@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {StateSubject} from './state-subject';
 import {Occupation} from "../models/occupation.enum";
 import {Accommodation} from "../models/accommodation.enum";
+import {OffersList} from "../models/offers-list";
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,7 @@ export class StateStoreService {
   startDate = new StateSubject<number>();
   occupation: Occupation;
   accommodation: Accommodation;
+  offersList = new StateSubject<OffersList>();
 
   constructor() { }
 

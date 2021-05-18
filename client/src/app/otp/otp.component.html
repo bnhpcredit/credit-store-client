@@ -1,6 +1,6 @@
 
 <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" autocomplete="off"
-      [ngClass]="{'is-loading': !!!(stateStore.otp.value$ | async)}">
+      [ngClass]="{'is-loading': !(stateStore.otp.value$ | async)}">
   <mat-card>
     <mat-card-header>
       <mat-card-title> עוד ממש קצת... </mat-card-title>

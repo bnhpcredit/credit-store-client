@@ -32,8 +32,14 @@ export class AppComponent implements OnDestroy {
 
   showStage(screenStage: ScreenStages) {
     this.screenStage = screenStage;
-    if (screenStage === ScreenStages.Otp) {
-      this.appService.sendOtp();
+    this.screenStage = screenStage;
+    switch (screenStage) {
+      case ScreenStages.Otp:
+        this.appService.sendOtp();
+        break;
+      case ScreenStages.OffersLis:
+        this.appService.getOffersLis();
+        break;
     }
   }
 

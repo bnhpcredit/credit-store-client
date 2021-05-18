@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Occupation} from "../utils/models/occupation.enum";
 import {Accommodation} from "../utils/models/accommodation.enum";
 import {StateStoreService} from "../utils/state/state-store.service";
@@ -15,7 +15,7 @@ export class OffersListComponent implements OnInit {
   formGroup: FormGroup;
   occupations = Occupation;
   accommodations = Accommodation;
-  titleAlert = 'שדה זה נדרש';
+  titleAlert = 'לא נבחרה הצעה';
   isSubmitted = false;
 
   constructor(private formBuilder: FormBuilder,
@@ -27,6 +27,7 @@ export class OffersListComponent implements OnInit {
 
   createForm() {
     this.formGroup = this.formBuilder.group({
+      selectedOffer: [null, [Validators.required]]
     });
   }
 
