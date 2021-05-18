@@ -1,11 +1,10 @@
-<div class="carusel-container" (click)="onNext()" style="cursor: pointer">
+<div class="carousel-container" (click)="onNext()" style="cursor: pointer">
   <h1
     class="carousel-title"
     color="primary"
-    (mouseout)="mouseover = false"
     style="text-align: center"
   >
-מה בא לך?
+    מה בא לך?
   </h1>
   <mdb-carousel
     [controls]="false"
@@ -17,7 +16,7 @@
       (mouseover)="mouseover = true"
       *ngFor="let slider of sliders; let i = index"
     >
-      <div class="lottie d-flex align-items-center" >
+      <div class="lottie d-flex align-items-center">
         <ng-lottie
           [options]="slider.options"
           (animationCreated)="animationCreated($event)"
@@ -33,8 +32,6 @@
 </div>
 <div class="dots">
   <div class="d-flex align-items-center">
-    <ng-lottie
-      [options]="dotsSlider.options"
-    ></ng-lottie>
+    <ng-lottie [options]="dotsSlider.options"></ng-lottie>
   </div>
 </div>

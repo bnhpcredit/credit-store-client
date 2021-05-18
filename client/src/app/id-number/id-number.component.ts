@@ -11,12 +11,10 @@ import {
   FormGroup,
   Validators,
 } from "@angular/forms";
-import { AnimationItem } from "lottie-web";
 import { AnimationOptions } from "ngx-lottie";
 import { Observable, BehaviorSubject } from "rxjs";
 import { delay } from "rxjs/operators";
 import { AppService } from "../app.service";
-import { Slider } from "../intro/home-page/slider.model";
 import { StateStoreService } from "../utils/state/state-store.service";
 
 @Component({
@@ -26,7 +24,6 @@ import { StateStoreService } from "../utils/state/state-store.service";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IdNumberComponent implements OnInit {
-
   @Output() next = new EventEmitter<void>();
   titleAlert = "שדה זה נדרש";
   frmStepOne: FormGroup;
@@ -46,7 +43,7 @@ export class IdNumberComponent implements OnInit {
   constructor(
     private appService: AppService,
     private formBuilder: FormBuilder,
-    private stateStore: StateStoreService,
+    private stateStore: StateStoreService
   ) {}
 
   ngOnInit(): void {
@@ -61,8 +58,6 @@ export class IdNumberComponent implements OnInit {
       idNumber: [null, Validators.required],
       phone: [null, Validators.required],
     });
-
-
   }
 
   onSubmit() {
@@ -74,7 +69,4 @@ export class IdNumberComponent implements OnInit {
       this.next.emit();
     }
   }
-
-
-
 }

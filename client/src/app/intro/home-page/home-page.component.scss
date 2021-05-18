@@ -1,10 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Arimo:wght@500&family=Bellefair&family=Poppins:wght@200&family=Roboto&family=Rubik:wght@400;600&display=swap");
-$title-shadow: 2px 2px 3px rgba(255,255,255,0.1);
+$title-shadow: 2px 2px 3px rgba(255, 255, 255, 0.1);
 
-
-.carusel-container {
-  padding: 2.25rem 0;
-}
 
 mdb-carousel-item {
   height: 60vh;
@@ -17,37 +13,35 @@ mdb-carousel-item {
 
 h1 {
   font-size: 25px;
-  color: black;
   margin-bottom: 2rem;
   font: bold 25px;
 }
-.carousel-title {
-  font-weight: 600;
-  font: bold 20px;
-  text-shadow: $title-shadow;
-  color:#403b4a;
-}
 
-.carousel-caption {
-  font-size: 20px;
-}
-
-.click-next,
 .dots {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  & > div {
+    position: fixed;
+    width: 200px;
+    height: 200px;
+  }
 }
 
-.click-next div {
-  position: fixed;
-  width: 100px;
-  height: 100px;
-}
+.carousel {
+  &-container {
+    padding: 2.25rem 0;
+  }
 
-.dots div {
-  position: fixed;
-  width: 200px;
-  height: 200px;
+  &-title {
+    font-weight: 600;
+    font: bold 20px;
+    text-shadow: $title-shadow;
+    color: #403b4a;
+  }
+
+  &-caption {
+    font-size: 20px;
+  }
 }

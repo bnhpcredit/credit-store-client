@@ -8,7 +8,6 @@ import { Slider } from "./slider.model";
 })
 export class HomePageComponent {
   @Output() next = new EventEmitter<void>();
-  mouseover = false;
 
   sliders: Slider[] = [
     {
@@ -68,7 +67,6 @@ export class HomePageComponent {
       loop: true,
     },
   };
-
 
   onNext() {
     this.next.emit();

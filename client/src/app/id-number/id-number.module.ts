@@ -1,12 +1,12 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { IdNumberComponent } from './id-number.component';
-import { AppMaterialModule } from '../app.material.module';
-import {ReactiveFormsModule} from '@angular/forms';
-import { LottieModule } from 'ngx-lottie';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { IdNumberComponent } from "./id-number.component";
+import { AppMaterialModule } from "../app.material.module";
+import { ReactiveFormsModule } from "@angular/forms";
+import { LottieModule } from "ngx-lottie";
 
 export function playerFactory() {
-  return import('lottie-web');
+  return import("lottie-web");
 }
 
 @NgModule({
@@ -17,9 +17,9 @@ export function playerFactory() {
     ReactiveFormsModule,
     LottieModule.forRoot({
       player: playerFactory,
-      useCache: true
-  }),
+      useCache: true,
+    }),
   ],
-  exports: [IdNumberComponent]
+  exports: [IdNumberComponent],
 })
-export class IdNumberModule { }
+export class IdNumberModule {}
