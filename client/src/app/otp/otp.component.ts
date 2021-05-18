@@ -29,13 +29,14 @@ import { AnimationOptions } from "ngx-lottie";
 export class OtpComponent implements OnInit {
   @Output() next = new EventEmitter<void>();
   isSubmitted = false;
+  otp: string = null;
+
   frmStepTwo: FormGroup;
   frmStepTwo$: Observable<FormGroup>;
-  otp:string = null;
-
   private myFrmStepTwo$ = new BehaviorSubject<FormGroup>(null);
   myFrmStepTwoListener$: Observable<FormGroup> =
     this.myFrmStepTwo$.asObservable();
+
   myFrmStepTwo(form: FormGroup) {
     this.myFrmStepTwo$.next(form);
   }
@@ -68,7 +69,7 @@ export class OtpComponent implements OnInit {
       if (!value) {
         return null;
       }
-      console.log(this.stateStore.otp.value)
+      console.log(this.stateStore.otp.value);
       const otpValid = this.stateStore.otp.value === +value;
       return !otpValid ? { otpValid: true } : null;
     };
@@ -76,11 +77,11 @@ export class OtpComponent implements OnInit {
 
   onSubmit() {
     this.isSubmitted = true;
-    console.log(this.frmStepTwo.valid)
+    console.log(this.frmStepTwo.valid);
     if (this.frmStepTwo.valid) {
       this.next.emit();
     }
-    this.otp=null;
+    this.otp = null;
   }
 
   resendOtp() {
@@ -89,18 +90,17 @@ export class OtpComponent implements OnInit {
   }
 
   spinner: AnimationOptions = {
-      path: "/assets/lotties/spinner.json",
-      loop: true,
+    path: "/assets/lotties/spinner.json",
+    loop: true,
   };
 
-  onOtpChange(otp){
+  onOtpChange(otp) {
     this.otp = otp;
-    this.frmStepTwo.controls['otpReceived'].setValue(otp);
+    this.frmStepTwo.controls["otpReceived"].setValue(otp);
   }
 
   otpLotiie: AnimationOptions = {
-      path: "/assets/lotties/otp.json",
-      loop: true,
+    path: "/assets/lotties/otp.json",
+    loop: true,
   };
-
 }

@@ -30,28 +30,17 @@
         <mat-error *ngIf="!otp && isSubmitted"> שגוי </mat-error>
       </mat-card-content>
       <mat-card-actions dir="ltr">
-
         <div class="reset-otp">
           <a href="#">
             <mat-icon (click)="resendOtp()">autorenew</mat-icon>
             <span>שלחו לי קוד חדש</span>
           </a>
-      </div>
+        </div>
         <div class="btn-grad-actions">
-          <button
-            class="btn-grad"
-            type="submit"
-            matStepperNext
-            mat-button
-          >
+          <button class="btn-grad" type="submit" matStepperNext mat-button>
             הבא
           </button>
-          <button
-            class="btn-grad"
-            matStepperPrevious
-            type="submit"
-            mat-button
-          >
+          <button class="btn-grad" matStepperPrevious type="submit" mat-button>
             הקודם
           </button>
         </div>

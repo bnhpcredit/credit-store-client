@@ -1,13 +1,13 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {OtpComponent} from './otp.component';
-import { AppMaterialModule } from '../app.material.module';
-import {ReactiveFormsModule} from '@angular/forms';
-import { LottieModule } from 'ngx-lottie';
-import { NgOtpInputModule } from  'ng-otp-input';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { OtpComponent } from "./otp.component";
+import { AppMaterialModule } from "../app.material.module";
+import { ReactiveFormsModule } from "@angular/forms";
+import { LottieModule } from "ngx-lottie";
+import { NgOtpInputModule } from "ng-otp-input";
 
 export function playerFactory() {
-  return import('lottie-web');
+  return import("lottie-web");
 }
 
 @NgModule({
@@ -19,12 +19,9 @@ export function playerFactory() {
     ReactiveFormsModule,
     LottieModule.forRoot({
       player: playerFactory,
-      useCache: true
-  }),
+      useCache: true,
+    }),
   ],
-  exports: [
-    OtpComponent
-  ]
+  exports: [OtpComponent],
 })
-export class OtpModule {
-}
+export class OtpModule {}
