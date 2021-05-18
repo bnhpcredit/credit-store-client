@@ -1,24 +1,50 @@
-
-<form [formGroup]="formGroup" (ngSubmit)="onSubmit()" autocomplete="off"
-      [ngClass]="{'is-loading': !(stateStore.otp.value$ | async)}">
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title> עוד ממש קצת... </mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <div>
-        <mat-form-field class="example-full-width" appearance="outline">
-          <mat-label> מהו הקוד שנשלח לך לנייד מספר {{stateStore.phone.value}} ?</mat-label>
-          <input type="text" matInput formControlName="otpReceived">
-          <mat-error *ngIf="!formControl('otpReceived').valid && isSubmitted">
-            הקוד שהוקלד שגוי
-          </mat-error>
-        </mat-form-field>
-      </div>
-    </mat-card-content>
-    <mat-card-actions dir="ltr">
-      <button type="submit" mat-raised-button color="warn">המשך</button>
-      <button type="button" mat-raised-button color="accent" (click)="resendOtp()">שלח שוב</button>
-    </mat-card-actions>
-  </mat-card>
+<form [formGroup]="frmStepTwo" (ngSubmit)="onSubmit()" autocomplete="off">
+  <div
+    class="spinner"
+    *ngIf="!(stateStore.otp.value$ | async); else showContent"
+  >
+    <div class="d-flex align-items-center">
+      <ng-lottie [options]="spinner"></ng-lottie>
+    </div>
+  </div>
+  <ng-template #showContent>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title> עוד ממש קצת... </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="otpLottie">
+          <ng-lottie [options]="otpLotiie"></ng-lottie>
+        </div>
+        <mat-label>
+          מהו הקוד שנשלח לך לנייד מספר
+          {{ stateStore.phone.value }} ?</mat-label
+        >
+        <div dir="ltr" type="password">
+          <ng-otp-input
+            (onInputChange)="onOtpChange($event)"
+            [config]="{ length: 6 }"
+          ></ng-otp-input>
+        </div>
+        הקוד שהוקלד
+        <mat-error *ngIf="!otp && isSubmitted"> שגוי </mat-error>
+      </mat-card-content>
+      <mat-card-actions dir="ltr">
+        <div class="reset-otp">
+          <a href="#">
+            <mat-icon (click)="resendOtp()">autorenew</mat-icon>
+            <span>שלחו לי קוד חדש</span>
+          </a>
+        </div>
+        <div class="btn-grad-actions">
+          <button class="btn-grad" type="submit" matStepperNext mat-button>
+            הבא
+          </button>
+          <button class="btn-grad" matStepperPrevious type="submit" mat-button>
+            הקודם
+          </button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </ng-template>
 </form>

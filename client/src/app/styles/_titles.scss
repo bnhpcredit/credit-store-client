@@ -1,0 +1,19 @@
+$title-shadow: 2px 2px 3px rgba(255, 255, 255, 0.1);
+@import url("https://fonts.googleapis.com/css2?family=Arimo:wght@500&family=Bellefair&family=Poppins:wght@200&family=Roboto&family=Rubik:wght@400;600&display=swap");
+
+.credit-store-title,.mat-card-header .mat-card-title, h3, h4{
+  font-weight: 600;
+  font-size: bold 1.3rem;
+  text-shadow: $title-shadow;
+  color: #403b4a;
+}
+
+.mat-card-header .mat-card-title {
+  font-size: 1.1rem;
+}
+
+h3, h4 {
+  font-weight: 400;
+  padding-top: 22px;
+  font-size: 1rem;
+}

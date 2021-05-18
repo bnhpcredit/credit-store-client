@@ -1,43 +1,61 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {Occupation} from "../utils/models/occupation.enum";
-import {Accommodation} from "../utils/models/accommodation.enum";
-import {StateStoreService} from "../utils/state/state-store.service";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+} from "@angular/core";
+import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
+import { Occupation } from "../utils/models/occupation.enum";
+import { Accommodation } from "../utils/models/accommodation.enum";
+import { StateStoreService } from "../utils/state/state-store.service";
+import { Observable, BehaviorSubject } from "rxjs";
 
 @Component({
-  selector: 'app-offers-list',
-  templateUrl: './offers-list.component.html',
-  styleUrls: ['./offers-list.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  selector: "app-offers-list",
+  templateUrl: "./offers-list.component.html",
+  styleUrls: ["./offers-list.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class OffersListComponent implements OnInit {
   @Output() next = new EventEmitter<void>();
-  formGroup: FormGroup;
+
+  // frmStepFour
   occupations = Occupation;
   accommodations = Accommodation;
-  titleAlert = 'לא נבחרה הצעה';
+  titleAlert = "שדה זה נדרש";
   isSubmitted = false;
 
-  constructor(private formBuilder: FormBuilder,
-              public stateStore: StateStoreService) { }
+  frmStepFour: FormGroup;
+  frmStepFour$: Observable<FormGroup>;
+  private myFrmStepFour$ = new BehaviorSubject<FormGroup>(null);
+  myFrmStepFourListener$: Observable<FormGroup> =
+    this.myFrmStepFour$.asObservable();
+
+  myFrmStepFour(form: FormGroup) {
+    this.myFrmStepFour$.next(form);
+  }
+
+  constructor(
+    private formBuilder: FormBuilder,
+    public stateStore: StateStoreService
+  ) {}
 
   ngOnInit(): void {
     this.createForm();
   }
 
   createForm() {
-    this.formGroup = this.formBuilder.group({
-      selectedOffer: [null, [Validators.required]]
-    });
+    this.frmStepFour = this.formBuilder.group({});
   }
 
   formControl(name: string) {
-    return this.formGroup.get(name) as FormControl;
+    return this.frmStepFour.get(name) as FormControl;
   }
 
   nextStage() {
     this.isSubmitted = true;
-    if (this.formGroup.valid) {
+    if (this.frmStepFour.valid) {
       this.next.emit();
     }
   }

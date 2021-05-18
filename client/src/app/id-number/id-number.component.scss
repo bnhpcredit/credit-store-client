@@ -1,0 +1,25 @@
+
+@import '../styles/_buttons';
+@import '../styles/_titles';
+
+::ng-deep .mat-step-header .mat-step-icon-state-done {
+  background-color: rgb(5, 85, 26);
+}
+
+
+.lottie {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.spinner__loading {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-grad {
+   width: 100%;
+}

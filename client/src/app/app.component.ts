@@ -15,9 +15,16 @@ import { CreditOtpService } from './services/credit-otp/credit-otp.service';
 export class AppComponent implements OnDestroy {
   screenStages = ScreenStages;
   screenStage = ScreenStages.Intro;
+  displayStepper = false;
+
+  onDisplayStepper(){
+    this.displayStepper = true;
+  }
 
   constructor(private appService: AppService, private otp: CreditOtpService) {
-    this.otp.get({phone: '1234', otp: '1234'}).subscribe(res => console.log(res));
+    this.otp.post({phone: '123456'}).subscribe(({otp}) => {
+      this.otp.get({phone: '123456', otp: otp}).subscribe(res => console.log('Got res:', res))
+    })
   }
 
   userForm = new FormGroup({

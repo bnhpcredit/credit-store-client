@@ -1,17 +1,23 @@
+const otpService = require("./otp.service");
+
 async function createOtpForPhone(req, res) {
-    console.log('Hit this point');
     try {
-        res.status(200).send({otp: '123456'});
+        const otp = await otpService.createOtp(+req.body.phone);
+        res.status(201).send({otp: otp})
     } catch (err) {
         res.status(400).send({error: err});
     }
 }
 async function getOtpForPhone(req, res) {
-    console.log('Hit this point, get');
     try {
-        res.status(200).send({otp: '123456'});
+        const verification = await otpService.verifyOtp({
+            phoneNumber: req.query.phone,
+            otp: req.query.otp
+        })
+        if (verification.status === 203) throw verification;
+        res.status(200).send({verified: verification});
     } catch (err) {
-        res.status(400).send({error: err});
+        res.status(203).send({error: err});
     }
 }
 

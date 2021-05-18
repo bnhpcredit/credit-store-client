@@ -8,7 +8,6 @@ import { Slider } from "./slider.model";
 })
 export class HomePageComponent {
   @Output() next = new EventEmitter<void>();
-  mouseover = false;
 
   sliders: Slider[] = [
     {
@@ -68,17 +67,6 @@ export class HomePageComponent {
       loop: true,
     },
   };
-
-  clickSlider: Slider = {
-    options: {
-      path: "/assets/lotties/2910-hand-tap.json",
-      loop: true,
-    },
-  };
-
-  animationCreated(animationItem: AnimationItem): void {
-    console.log(animationItem);
-  }
 
   onNext() {
     this.next.emit();

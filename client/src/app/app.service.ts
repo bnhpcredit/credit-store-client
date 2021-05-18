@@ -1,13 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {StateStoreService} from './utils/state/state-store.service';
-import {OffersList} from "./utils/models/offers-list";
+import { Subject } from 'rxjs';
 let mockOtp = 1;
 @Injectable({
   providedIn: 'root'
 })
 export class AppService {
+  subject = new Subject<any>();
 
+
+  sendForm(form, step) {
+    this.subject.next({ form, step });
+  }
   constructor(private http: HttpClient, private stateStore: StateStoreService) { }
 
   rootURL = '/api';
@@ -18,25 +23,6 @@ export class AppService {
     setTimeout(() => {
       const otp = mockOtp++;
       this.stateStore.otp.update(otp);
-    }, 2000);
-  }
-
-  getOffersLis() {
-    // simulate async request
-    setTimeout(() => {
-      const offersList: OffersList = {
-        list: [
-          {
-            description: 'הלוואה למטרות מיוחדות',
-            id: 1
-          },
-          {
-            description: 'הלוואה לכיסוי חובות',
-            id: 2
-          },
-        ]
-      };
-      this.stateStore.offersList.update(offersList);
     }, 2000);
   }
 
