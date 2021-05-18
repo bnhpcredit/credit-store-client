@@ -1,30 +1,47 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {StateStoreService} from '../utils/state/state-store.service';
+import { Component, EventEmitter, OnInit, Output } from "@angular/core";
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from "@angular/forms";
+import { Observable, BehaviorSubject } from "rxjs";
+import { StateStoreService } from "../utils/state/state-store.service";
 
 @Component({
-  selector: 'app-loan-details',
-  templateUrl: './loan-details.component.html',
-  styleUrls: ['./loan-details.component.scss']
+  selector: "app-loan-details",
+  templateUrl: "./loan-details.component.html",
+  styleUrls: ["./loan-details.component.scss"],
 })
 export class LoanDetailsComponent implements OnInit {
   @Output() next = new EventEmitter<void>();
   today = new Date().toDateString();
-  formGroup: FormGroup;
-  titleAlert = 'שדה זה נדרש';
+  titleAlert = "שדה זה נדרש";
+  frmStepFive: FormGroup;
+  frmStepFive$: Observable<FormGroup>;
 
-  formControl(name: string) {
-    return this.formGroup.get(name) as FormControl;
+  private myFrmStepFive$ = new BehaviorSubject<FormGroup>(null);
+  myFrmStepFiveListener$: Observable<FormGroup> =
+    this.myFrmStepFive$.asObservable();
+  myFrmStepFive(form: FormGroup) {
+    this.myFrmStepFive$.next(form);
   }
 
-  constructor(private formBuilder: FormBuilder, private stateStore: StateStoreService) { }
+  formControl(name: string) {
+    return this.frmStepFive.get(name) as FormControl;
+  }
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private stateStore: StateStoreService
+  ) {}
 
   ngOnInit(): void {
     this.createForm();
   }
 
   createForm() {
-    this.formGroup = this.formBuilder.group({
+    this.frmStepFive = this.formBuilder.group({
       loanAmount: [null, Validators.required],
       payments: [null, [Validators.required, Validators.maxLength(3)]],
       startDate: [null, Validators.required],
@@ -32,10 +49,12 @@ export class LoanDetailsComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.formGroup.valid) {
-      this.stateStore.loanAmount.update(this.formGroup.get('loanAmount').value);
-      this.stateStore.payments.update(this.formGroup.get('payments').value);
-      this.stateStore.startDate.update(this.formGroup.get('startDate').value);
+    if (this.frmStepFive.valid) {
+      this.stateStore.loanAmount.update(
+        this.frmStepFive.get("loanAmount").value
+      );
+      this.stateStore.payments.update(this.frmStepFive.get("payments").value);
+      this.stateStore.startDate.update(this.frmStepFive.get("startDate").value);
       this.next.emit();
     }
   }

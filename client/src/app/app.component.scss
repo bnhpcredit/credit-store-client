@@ -1,12 +1,3 @@
-.app-content {
-  // min-height: 400px;
-}
-
-h3, h4 {
-  padding-top: 22px;
-  font-size: 1.25rem;
-}
-
 .mat-error {
   font-size: 0.8rem;
 }
@@ -21,7 +12,8 @@ h3, h4 {
   .mat-toolbar {
     color: white;
     font-size: 1px;
-    background: url('../assets/images/bank-logo.png') center center no-repeat white;
+    background: url("../assets/images/bank-logo.png") center center no-repeat
+      white;
     background-size: 11.2rem;
   }
   .mat-card {
@@ -29,10 +21,6 @@ h3, h4 {
     max-width: 750px;
     margin: 30px auto;
 
-    .mat-card-title {
-      font-size: 1.3rem;
-      line-height: 1.5rem;
-    }
 
     .mat-card-content {
       display: flex;
@@ -61,5 +49,3 @@ h3, h4 {
     background-position: center center;
   }
 }
-
-

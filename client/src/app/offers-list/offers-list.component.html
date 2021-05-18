@@ -1,17 +1,34 @@
-<form [formGroup]="formGroup" (ngSubmit)="nextStage()">
+<form [formGroup]="frmStepFour" (ngSubmit)="nextStage()">
   <mat-card class="app-queries">
     <mat-card-header>
       <mat-card-title>
-        נמצאו  הצעות
-<!--        {{stateStore.offesList}}-->
+        נמצאו הצעות
+        <!--        {{stateStore.offesList}}-->
         במיוחד עבורך
       </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <h3> בחר הלוואה שמתאימה לך </h3>
+      <h3>בחר הלוואה שמתאימה לך</h3>
     </mat-card-content>
     <mat-card-actions dir="ltr">
-      <button type="submit" mat-raised-button color="warn">המשך</button>
+      <div class="btn-grad-actions">
+        <button
+          class="btn-grad btn-grad-next"
+          type="submit"
+          matStepperNext
+          mat-button
+        >
+          הבא
+        </button>
+        <button
+          class="btn-grad btn-grad-prev"
+          matStepperPrevious
+          type="submit"
+          mat-button
+        >
+          הקודם
+        </button>
+      </div>
     </mat-card-actions>
   </mat-card>
 </form>

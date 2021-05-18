@@ -1,34 +1,58 @@
-<form [formGroup]="formGroup" (ngSubmit)="onSubmit()" autocomplete="off">
+<form [formGroup]="frmStepFive" (ngSubmit)="onSubmit()" autocomplete="off">
   <mat-card>
     <mat-card-header>
-      <mat-card-title>  הלוואה בתנאים מותאמים: </mat-card-title>
+      <mat-card-title> הלוואה בתנאים מותאמים: </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <mat-form-field class="example-full-width" appearance="outline">
-          <mat-label> מה סכום ההלואה שאתה מעוניין? </mat-label>
-          <input type="number" matInput placeholder="0" formControlName="loanAmount">
-          <span matPrefix>₪&nbsp;</span>
-          <mat-error *ngIf="!formControl('loanAmount').valid && formControl('loanAmount')">
-            {{ titleAlert }}
-          </mat-error>
-        </mat-form-field>
-        <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label> בכמה תשלומים חודשיים תוכל להחזיר את ההלוואה? </mat-label>
-            <input type="number"  maxlength="3" matInput placeholder="12" formControlName="payments">
-          <mat-error *ngIf="!formControl('payments').valid && formControl('payments')">
-            {{ titleAlert }}
-          </mat-error>
-        </mat-form-field>
-        <mat-form-field class="example-full-width" appearance="outline">
-            <mat-label> תאריך התחלה: </mat-label>
-            <input type="date" required  matInput formControlName="startDate">
-          <mat-error *ngIf="!formControl('startDate').valid && formControl('startDate')">
-            {{ titleAlert }}
-          </mat-error>
-        </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label> מה סכום ההלואה שאתה מעוניין? </mat-label>
+        <input
+          type="number"
+          matInput
+          placeholder="0"
+          formControlName="loanAmount"
+        />
+        <span matPrefix>₪&nbsp;</span>
+        <mat-error
+          *ngIf="!formControl('loanAmount').valid && formControl('loanAmount')"
+        >
+          {{ titleAlert }}
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label> בכמה תשלומים חודשיים תוכל להחזיר את ההלוואה? </mat-label>
+        <input
+          type="number"
+          maxlength="3"
+          matInput
+          placeholder="12"
+          formControlName="payments"
+        />
+        <mat-error
+          *ngIf="!formControl('payments').valid && formControl('payments')"
+        >
+          {{ titleAlert }}
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label> תאריך התחלה: </mat-label>
+        <input type="date" required matInput formControlName="startDate" />
+        <mat-error
+          *ngIf="!formControl('startDate').valid && formControl('startDate')"
+        >
+          {{ titleAlert }}
+        </mat-error>
+      </mat-form-field>
     </mat-card-content>
     <mat-card-actions dir="ltr">
-      <button type="submit" mat-raised-button color="warn">המשך</button>
+      <div class="btn-grad-actions">
+        <button class="btn-grad" type="submit" matStepperNext mat-button>
+          הבא
+        </button>
+        <button class="btn-grad" matStepperPrevious type="submit" mat-button>
+          הקודם
+        </button>
+      </div>
     </mat-card-actions>
   </mat-card>
 </form>

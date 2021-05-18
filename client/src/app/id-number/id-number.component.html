@@ -1,33 +1,70 @@
-<form [formGroup]="formGroup" (ngSubmit)="onSubmit()" autocomplete="off">
+<form [formGroup]="frmStepOne" (ngSubmit)="onSubmit()" autocomplete="off">
   <mat-card>
     <mat-card-header>
-      <mat-card-title>  נשמח להכיר קצת יותר, בשביל לתת לך אפשרות להגשים את החלום </mat-card-title>
+      <mat-card-title>
+        נשמח להכיר קצת יותר, בשביל לתת לך אפשרות להגשים את החלום
+      </mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <mat-form-field class="example-full-width" appearance="outline">
         <mat-label> שם: </mat-label>
-        <input type="text" matInput placeholder="ישראל ישראלי" formControlName="name">
-        <mat-error *ngIf="!formControl('name').valid && formControl('name').touched">
+        <input
+          type="text"
+          matInput
+          placeholder="ישראל ישראלי"
+          formControlName="name"
+          required
+        />
+        <mat-error
+          *ngIf="!formControl('name').valid && formControl('name').touched"
+        >
           {{ titleAlert }}
         </mat-error>
       </mat-form-field>
       <mat-form-field class="example-full-width" appearance="outline">
         <mat-label> תעודת זהות: </mat-label>
-        <input type="tel" matInput placeholder="012345678" formControlName="idNumber">
-        <mat-error *ngIf="!formControl('idNumber').valid && formControl('idNumber').touched">
+        <input
+          type="tel"
+          matInput
+          placeholder="012345678"
+          formControlName="idNumber"
+          required
+        />
+        <mat-error
+          *ngIf="
+            !formControl('idNumber').valid && formControl('idNumber').touched
+          "
+        >
           {{ titleAlert }}
         </mat-error>
       </mat-form-field>
       <mat-form-field class="example-full-width" appearance="outline">
         <mat-label> מספר טלפון: </mat-label>
-        <input type="tel" matInput placeholder="0512345678" formControlName="phone">
-        <mat-error *ngIf="!formControl('phone').valid && formControl('phone').touched">
+        <input
+          type="tel"
+          matInput
+          placeholder="0512345678"
+          formControlName="phone"
+          required
+        />
+        <mat-error
+          *ngIf="!formControl('phone').valid && formControl('phone').touched"
+        >
           {{ titleAlert }}
         </mat-error>
       </mat-form-field>
     </mat-card-content>
     <mat-card-actions dir="ltr">
-      <button type="submit" mat-raised-button color="warn">המשך</button>
+      <button
+        class="btn-grad"
+        type="submit"
+        matStepperNext
+        mat-button
+        matTooltip="שליחת קוד חד פעמי"
+        matTooltipHideDelay="100000"
+      >
+        שליחת קוד חד פעמי
+      </button>
     </mat-card-actions>
   </mat-card>
 </form>

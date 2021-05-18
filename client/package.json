@@ -24,6 +24,7 @@
     "@fortawesome/fontawesome-free": "^5.15.1",
     "lottie-web": "^5.7.8",
     "mdb-angular-ui-kit": "^1.0.0-beta3",
+    "ng-otp-input": "1.7.1",
     "ngx-lottie": "^6.4.0",
     "rxjs": "~6.6.3",
     "tslib": "^2.1.0",

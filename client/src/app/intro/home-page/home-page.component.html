@@ -1,7 +1,6 @@
-<div class="carusel-container" (click)="onNext()" style="cursor: pointer">
-  <h1
-    class="carousel-title"
-    (mouseout)="mouseover = false"
+<div class="carousel-container" (click)="onNext()" style="cursor: pointer">
+  <h1 class="credit-store-title"
+    color="primary"
     style="text-align: center"
   >
     מה בא לך?
@@ -23,7 +22,7 @@
         ></ng-lottie>
       </div>
       <div class="carousel-caption">
-        <h5 class="carousel-title">
+        <h5 class="credit-store-title">
           {{ slider.title }}
         </h5>
       </div>
@@ -32,9 +31,6 @@
 </div>
 <div class="dots">
   <div class="d-flex align-items-center">
-    <ng-lottie
-      [options]="dotsSlider.options"
-      (animationCreated)="animationCreated($event)"
-    ></ng-lottie>
+    <ng-lottie [options]="dotsSlider.options"></ng-lottie>
   </div>
 </div>
