@@ -1,3 +1,7 @@
+
+@import '../styles/_buttons';
+@import '../styles/_titles';
+
 .app-queries {
   mat-radio-group {
     display: flex;
@@ -10,14 +14,5 @@
   .mat-card-content {
     align-items: start;
   }
-  .btn-grad {
-    color: white;
-    width: 50%;
-    border-radius: 42px;
-    &-actions {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 3rem;
-    }
-  }
+
 }

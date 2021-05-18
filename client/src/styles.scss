@@ -1,23 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap');
-@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
-@import '~@fortawesome/fontawesome-free/scss/solid.scss';
-@import '~@fortawesome/fontawesome-free/scss/regular.scss';
-@import '~@fortawesome/fontawesome-free/scss/brands.scss';
-@import '~mdb-angular-ui-kit/assets/scss/mdb.scss';
-@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@500&family=Bellefair&family=Poppins:wght@200&family=Roboto&family=Rubik:wght@400;600&display=swap');
-@import '~@angular/material/theming';
+@import url("https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap");
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+@import "~@fortawesome/fontawesome-free/scss/regular.scss";
+@import "~@fortawesome/fontawesome-free/scss/brands.scss";
+@import "~mdb-angular-ui-kit/assets/scss/mdb.scss";
+@import url("https://fonts.googleapis.com/css2?family=Arimo:wght@500&family=Bellefair&family=Poppins:wght@200&family=Roboto&family=Rubik:wght@400;600&display=swap");
+@import "~@angular/material/theming";
 
-html, body {
-  height: 100%;
-  font-family: 'Rubik', sans-serif;;
-}
+
 
 $custom-typography: mat-typography-config(
-  $font-family: 'Rubik, sans-serif',
- // $headline: mat-typography-level(32px, 48px, 600),
-//  $body-1: mat-typography-level(16px, 24px, 400)
+  $font-family: "Rubik, sans-serif",
+  // $headline: mat-typography-level(32px, 48px, 600),
+  //  $body-1: mat-typography-level(16px, 24px, 400),
 );
+
+@import '~@angular/material/theming';
+$custom-typography: mat-typography-config(
+  $font-family: 'Rubik, sans-serif'
+);
+
+@include angular-material-typography($custom-typography);
 
 $custom-light-blue: (
   50: #e1f5fe,
@@ -49,48 +53,54 @@ $custom-light-blue: (
     A200: $black-87-opacity,
     A400: $black-87-opacity,
     A700: white,
-  )
+  ),
 );
 
 $candy-app-primary: mat-palette($custom-light-blue, 900);
-$candy-app-accent:  mat-palette($mat-grey);
+$candy-app-accent: mat-palette($mat-grey);
 //$candy-app-accent: mat-palette($custom-light-blue, 900);
 
 // The warn palette is optional (defaults to red).
-$candy-app-warn:  mat-palette($mat-red, 500, A200, A700);
+$candy-app-warn: mat-palette($mat-red, 500, A200, A700);
 //$custom-theme-warn: mat-palette($mat-red, 500, A200, A700);
 
 // Create the theme object (a Sass map containing all of the palettes).
-$candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
+$candy-app-theme: mat-light-theme(
+  $candy-app-primary,
+  $candy-app-accent,
+  $candy-app-warn
+);
 
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
 @include angular-material-theme($candy-app-theme);
 
-.btn-grad{
-  background-image: linear-gradient(to right top, #ed433f, #df3a37, #d2302f, #c42627, #b71b1f);
-    color:white;
-  //  &-next{
-  //   background-image: linear-gradient(to right top, #ed433f, #df3a37, #d2302f, #c42627, #b71b1f);
-  //   color:white;
-  //  }
+.btn-grad {
+  background-image: linear-gradient(
+    to right top,
+    #ed433f,
+    #df3a37,
+    #d2302f,
+    #c42627,
+    #b71b1f
+  );
+  color: white;
+  text-align: center;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  border-radius: 42px;
+}
 
-  //  &-prev{
-  //   background: #e1e1e1;
-  //   color:black;
-  //  }
-   text-align: center;
-   transition: 0.5s;
-   background-size: 200% auto;
-   color: white;
-   box-shadow: 0 0 20px #eee;
-   border-radius: 10px;
-   border-radius: 42px;
- }
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
 
- .btn-grad:hover {
-   background-position: right center; /* change the direction of the change here */
-   color: #fff;
-   text-decoration: none;
- }
+html,
+body {
+  height: 100%;
+  font-family: "Rubik", sans-serif;
+}
+

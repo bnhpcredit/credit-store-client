@@ -1,10 +1,2 @@
-.btn-grad {
-  border-radius: 42px;
-  width: 50%;
-  color: white;
-  &-actions {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 3rem;
-  }
-}
+@import '../styles/_buttons';
+@import '../styles/_titles';

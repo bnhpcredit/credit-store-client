@@ -1,3 +1,6 @@
+@import '../styles/_buttons';
+@import '../styles/_titles';
+
 .mat-icon:hover {
   opacity: 1 !important;
   color: #1a1818;
@@ -19,17 +22,6 @@ mat-label {
   height: 200px;
 }
 
-.btn-grad {
-  border-radius: 42px;
-  width: 50%;
-  color: white;
-
-  &-actions {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 3rem;
-  }
-}
 
 .reset-otp a {
   display: flex;
