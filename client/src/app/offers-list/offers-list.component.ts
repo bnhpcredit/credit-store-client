@@ -10,6 +10,7 @@ import { Occupation } from "../utils/models/occupation.enum";
 import { Accommodation } from "../utils/models/accommodation.enum";
 import { StateStoreService } from "../utils/state/state-store.service";
 import { Observable, BehaviorSubject } from "rxjs";
+import {AnimationOptions} from "ngx-lottie";
 
 @Component({
   selector: "app-offers-list",
@@ -52,6 +53,11 @@ export class OffersListComponent implements OnInit {
   formControl(name: string) {
     return this.frmStepFour.get(name) as FormControl;
   }
+
+  spinner: AnimationOptions = {
+    path: "/assets/lotties/spinner.json",
+    loop: true,
+  };
 
   nextStage() {
     this.isSubmitted = true;

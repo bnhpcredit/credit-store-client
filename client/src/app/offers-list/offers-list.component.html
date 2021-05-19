@@ -1,34 +1,45 @@
 <form [formGroup]="frmStepFour" (ngSubmit)="nextStage()">
-  <mat-card class="app-queries">
-    <mat-card-header>
-      <mat-card-title>
-        נמצאו הצעות
-        <!--        {{stateStore.offesList}}-->
-        במיוחד עבורך
-      </mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <h3>בחר הלוואה שמתאימה לך</h3>
-    </mat-card-content>
-    <mat-card-actions dir="ltr">
-      <div class="btn-grad-actions">
-        <button
-          class="btn-grad btn-grad-next"
-          type="submit"
-          matStepperNext
-          mat-button
-        >
-          הבא
-        </button>
-        <button
-          class="btn-grad btn-grad-prev"
-          matStepperPrevious
-          type="submit"
-          mat-button
-        >
-          הקודם
-        </button>
-      </div>
-    </mat-card-actions>
-  </mat-card>
+  <div class="spinner"
+    *ngIf="!(stateStore.offersList.value$ | async); else showContent">
+
+    <div class="d-flex align-items-center">
+      <ng-lottie [options]="spinner"></ng-lottie>
+    </div>
+  </div>
+
+  <ng-template #showContent>
+    <mat-card class="app-queries">
+      <mat-card-header>
+        <mat-card-title>
+          נמצאו הצעות
+          <!--        {{stateStore.offesList}}-->
+          במיוחד עבורך
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <h3>בחר הלוואה שמתאימה לך</h3>
+      </mat-card-content>
+      <mat-card-actions dir="ltr">
+        <div class="btn-grad-actions">
+          <button
+            class="btn-grad btn-grad-next"
+            type="submit"
+            matStepperNext
+            mat-button
+          >
+            הבא
+          </button>
+          <button
+            class="btn-grad btn-grad-prev"
+            matStepperPrevious
+            type="submit"
+            mat-button
+          >
+            הקודם
+          </button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </ng-template>
+
 </form>

@@ -37,19 +37,6 @@ export class AppComponent implements OnDestroy {
 
   destroy$: Subject<boolean> = new Subject<boolean>();
 
-  showStage(screenStage: ScreenStages) {
-    this.screenStage = screenStage;
-    this.screenStage = screenStage;
-    switch (screenStage) {
-      case ScreenStages.Otp:
-        this.appService.sendOtp();
-        break;
-      case ScreenStages.OffersLis:
-        this.appService.getOffersLis();
-        break;
-    }
-  }
-
   onSubmit() {
     this.appService.addUser(this.userForm.value).pipe(takeUntil(this.destroy$)).subscribe(data => {
       console.log('message::::', data);
