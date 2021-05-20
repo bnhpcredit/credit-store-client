@@ -3,7 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import {StateStoreService} from './utils/state/state-store.service';
 import { Subject } from 'rxjs';
 import { OffersList } from './utils/models/offers-list';
+import {ProductLoanTypes} from "./utils/models/product-loan-types.enum";
+
 let mockOtp = 123456;
+
 @Injectable({
   providedIn: 'root'
 })
