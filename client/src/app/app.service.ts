@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {StateStoreService} from './utils/state/state-store.service';
 import {Subject} from 'rxjs';
 import {OffersList} from "./utils/models/offers-list";
+import {ProductLoanTypes} from "./utils/models/product-loan-types.enum";
 
 let mockOtp = 1;
 
@@ -40,12 +41,12 @@ export class AppService {
   }
 
   getMockOfferList(): OffersList {
-    return {
+    return new OffersList({
       loans: [
         {
           id: "85d41c57-b921-42af-97a9-6cca2540f14c",
-          productType: 4,
-          productTypeName: "הלוואה לכל מטרה",
+          productType: ProductLoanTypes.Vacation,
+          productTypeName: "הלוואה לחופשה",
           loanType: 1,
           loanAmount: 50000,
           numberOfPayments: 32,
@@ -55,8 +56,19 @@ export class AppService {
         },
         {
           id: "85d41c57-b921-42af-97a9-6cca2540f14c",
-          productType: 2,
+          productType: ProductLoanTypes.Car,
           productTypeName: "הלוואה לרכישת רכב",
+          loanType: 2,
+          loanAmount: 100000,
+          numberOfPayments: 52,
+          startDate: "2021-05-09",
+          endDate: "2021-05-09",
+          firstPaymentDate: "2021-05-09"
+        },
+        {
+          id: "85d41c57-b921-42af-97a9-6cca2540f14c",
+          productType: ProductLoanTypes.Department,
+          productTypeName: "הלוואה לרכישת דירה",
           loanType: 2,
           loanAmount: 100000,
           numberOfPayments: 52,
@@ -65,7 +77,7 @@ export class AppService {
           firstPaymentDate: "2021-05-09"
         }
       ]
-    };
+    });
   }
 
   getUsers() {

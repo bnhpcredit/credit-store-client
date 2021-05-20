@@ -5,7 +5,7 @@ import {
   OnInit,
   Output,
 } from "@angular/core";
-import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import { Occupation } from "../utils/models/occupation.enum";
 import { Accommodation } from "../utils/models/accommodation.enum";
 import { StateStoreService } from "../utils/state/state-store.service";
@@ -47,7 +47,9 @@ export class OffersListComponent implements OnInit {
   }
 
   createForm() {
-    this.frmStepFour = this.formBuilder.group({});
+    this.frmStepFour = this.formBuilder.group({
+      selectedOffer: [null, Validators.required]
+    });
   }
 
   formControl(name: string) {

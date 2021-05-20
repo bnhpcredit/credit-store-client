@@ -1,2 +1,26 @@
 @import '../styles/_buttons';
 @import '../styles/_titles';
+
+.mat-card-header, h3, app-offers-list {
+  text-align: center;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+.app-offers-list {
+  .img-wrapper, .name-rapper {
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+  }
+
+  .img-wrapper {
+    margin-top: 20px;
+  }
+
+  img {
+    width: 207px;
+  }
+}

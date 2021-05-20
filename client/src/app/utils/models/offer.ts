@@ -8,4 +8,5 @@ export class Offer {
   startDate: string;
   endDate: string;
   firstPaymentDate: string;
+  typeImage?: string;
 }
