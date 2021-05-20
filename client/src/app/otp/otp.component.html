@@ -21,6 +21,7 @@
           {{ stateStore.phone.value }} ?</mat-label
         >
         <div dir="ltr" type="password">
+          <!-- need to change to dynamic [config]="{ length: 6 }" by check otp store length -->
           <ng-otp-input
             (onInputChange)="onOtpChange($event)"
             [config]="{ length: 6 }"

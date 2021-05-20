@@ -22,7 +22,7 @@ export class StepperComponent {
   completed: boolean = false;
   state: string;
   title = "mat-stepper";
-
+  isEditable = false;
   constructor(private appService: AppService) {}
 
   @ViewChild("stepOne") stepOneComponent: IdNumberComponent;
