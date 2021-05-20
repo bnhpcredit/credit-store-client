@@ -9,4 +9,14 @@
   <ng-template #stepper>
     <app-stepper></app-stepper>
   </ng-template>
+
+  <app-loan-details *ngIf="showLastStage"></app-loan-details>
 </mat-sidenav-container>
+
+<!-- <div class="app-content" [ngSwitch]="screenStage">
+  <app-home-page *ngSwitchCase="screenStages.Intro" (next)="showStage(screenStages.IdNumber)"></app-home-page>
+  <app-id-number *ngSwitchCase="screenStages.Stepper" (next)="showStage(screenStages.LoanDetails)"></app-id-number>
+
+  <app-loan-details *ngSwitchCase="screenStages.LoanDetails"></app-loan-details>
+</div> -->
+<!-- <app-loan-details></app-loan-details> -->

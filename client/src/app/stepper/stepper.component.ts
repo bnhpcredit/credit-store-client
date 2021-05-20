@@ -1,5 +1,5 @@
 import { STEPPER_GLOBAL_OPTIONS } from "@angular/cdk/stepper";
-import { Component, ViewChild } from "@angular/core";
+import { Component, EventEmitter, Output, ViewChild } from "@angular/core";
 import { AppService } from "../app.service";
 import { IdNumberComponent } from "../id-number/id-number.component";
 import { LoanDetailsComponent } from "../loan-details/loan-details.component";
@@ -11,17 +11,13 @@ import { QueriesComponent } from "../queries/queries.component";
   selector: "app-stepper",
   templateUrl: "./stepper.component.html",
   styleUrls: ["./stepper.component.scss"],
-  providers: [
-    {
-      provide: STEPPER_GLOBAL_OPTIONS,
-      useValue: { displayDefaultIndicatorType: false },
-    },
-  ],
+
 })
-export class StepperComponent {
+export class StepperComponent   {
   completed: boolean = false;
   state: string;
   title = "mat-stepper";
+  @Output() next = new EventEmitter<void>();
 
   constructor(private appService: AppService) {}
 
@@ -53,8 +49,9 @@ export class StepperComponent {
   get frmStepFive() {
     return this.stepFiveComponent ? this.stepFiveComponent.frmStepFive$ : null;
   }
-  done() {
-    this.completed = true;
-    this.state = "done";
+  showLoanDetails = false;
+  showLastStage() {
+    this.showLoanDetails = true;
+   // this.next.emit();
   }
 }

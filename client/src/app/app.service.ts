@@ -8,7 +8,7 @@ let mockOtp = 1;
 })
 export class AppService {
   subject = new Subject<any>();
-
+  toogleLastStage = new Subject<any>();
 
   sendForm(form, step) {
     this.subject.next({ form, step });
@@ -33,5 +33,10 @@ export class AppService {
   addUser(user: any) {
     return this.http.post(this.rootURL + '/user', {user});
   }
+
+  showLastStage(){
+    this.toogleLastStage.next();
+  }
+
 
 }
