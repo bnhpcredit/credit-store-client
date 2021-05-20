@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {StateStoreService} from './utils/state/state-store.service';
 import { Subject } from 'rxjs';
-let mockOtp = 1;
+let mockOtp = 123456;
 @Injectable({
   providedIn: 'root'
 })
@@ -34,9 +34,9 @@ export class AppService {
     return this.http.post(this.rootURL + '/user', {user});
   }
 
-  showLastStage(){
-    this.toogleLastStage.next();
-  }
+  // onShowLastStage(){
+  //   this.toogleLastStage.next();
+  // }
 
 
 }

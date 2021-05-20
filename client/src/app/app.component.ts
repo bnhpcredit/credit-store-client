@@ -20,12 +20,12 @@ import { ThisReceiver } from "@angular/compiler";
   styleUrls: ["./app.component.scss"],
   encapsulation: ViewEncapsulation.None,
 })
-export class AppComponent implements OnDestroy, OnInit {
+export class AppComponent implements OnDestroy{
   @ViewChild(MatSidenav) sidenav;
   screenStages = ScreenStages;
   screenStage = ScreenStages.Intro;
   displayStepper = false;
-  showLastStage = false;
+
   onDisplayStepper() {
     this.displayStepper = true;
   }
@@ -35,12 +35,7 @@ export class AppComponent implements OnDestroy, OnInit {
       .get({ phone: "1234", otp: "1234" })
       .subscribe((res) => console.log(res));
   }
-  ngOnInit(): void {
-    this.appService.toogleLastStage.subscribe(() => {
-      this.showLastStage = true;
-      this.displayStepper = false;
-    });
-  }
+
 
   userForm = new FormGroup({
     phone: new FormControl("", Validators.nullValidator && Validators.required),
@@ -60,9 +55,9 @@ export class AppComponent implements OnDestroy, OnInit {
     // if (screenStage === ScreenStages.Otp) {
     //   this.appService.sendOtp();
     // }
-    if (sidenavToggle) {
-      this.sidenav.toggle();
-    }
+    // if (sidenavToggle) {
+    //   this.sidenav.toggle();
+    // }
   }
 
   onSubmit() {
@@ -130,4 +125,5 @@ export class AppComponent implements OnDestroy, OnInit {
       this.showOtpComponent = true;
     }, 0);
   }
+
 }

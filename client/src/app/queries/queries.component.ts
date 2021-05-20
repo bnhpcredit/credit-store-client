@@ -66,7 +66,6 @@ export class QueriesComponent implements OnInit {
     this.isSubmitted = true;
 
     if (this.frmStepThree.valid) {
-      console.log('this.frmStepThree.valid ' + this.frmStepThree.valid)
       this.stateStore.occupation = this.formControl("occupation").value;
       this.stateStore.accommodation = this.formControl("accommodation").value;
       this.next.emit();

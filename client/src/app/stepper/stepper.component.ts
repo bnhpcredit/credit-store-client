@@ -17,6 +17,8 @@ export class StepperComponent   {
   completed: boolean = false;
   state: string;
   title = "mat-stepper";
+  showLoanDetails = false;
+
   @Output() next = new EventEmitter<void>();
 
   constructor(private appService: AppService) {}
@@ -49,9 +51,9 @@ export class StepperComponent   {
   get frmStepFive() {
     return this.stepFiveComponent ? this.stepFiveComponent.frmStepFive$ : null;
   }
-  showLoanDetails = false;
+
   showLastStage() {
     this.showLoanDetails = true;
-   // this.next.emit();
+    this.next.emit();
   }
 }

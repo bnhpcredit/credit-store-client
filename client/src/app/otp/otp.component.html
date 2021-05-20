@@ -20,10 +20,11 @@
           מהו הקוד שנשלח לך לנייד מספר
           {{ stateStore.phone.value }} ?</mat-label
         >
-        <div dir="ltr" type="password">
+        <div dir="ltr">
           <ng-otp-input
+          [isPasswordInput]="true"
             (onInputChange)="onOtpChange($event)"
-            [config]="{ length: 6 }"
+            [config]="{ length: 6 , isPasswordInput:true}"
           ></ng-otp-input>
         </div>
         הקוד שהוקלד

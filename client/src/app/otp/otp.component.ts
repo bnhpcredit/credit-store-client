@@ -31,6 +31,8 @@ export class OtpComponent implements OnInit {
   isSubmitted = false;
   otp: string = null;
 
+
+
   frmStepTwo: FormGroup;
   frmStepTwo$: Observable<FormGroup>;
   private myFrmStepTwo$ = new BehaviorSubject<FormGroup>(null);
