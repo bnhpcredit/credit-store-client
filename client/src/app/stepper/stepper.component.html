@@ -1,21 +1,21 @@
 <mat-vertical-stepper linear #stepper>
-  <mat-step [stepControl]="frmStepOne | async">
+  <mat-step [stepControl]="frmStepOne | async" [editable]="false">
     <!-- <ng-template matStepLabel>הפרטים שלך</ng-template> -->
     <app-id-number #stepOne></app-id-number>
   </mat-step>
-  <mat-step [stepControl]="frmStepTwo | async">
+  <mat-step [stepControl]="frmStepTwo | async" [editable]="false">
     <!-- <ng-template matStepLabel>אימות</ng-template> -->
     <app-otp #stepTwo></app-otp>
   </mat-step>
-  <mat-step [stepControl]="frmStepThree | async">
+  <mat-step [stepControl]="frmStepThree | async" [editable]="false">
     <!-- <ng-template matStepLabel>Step Two Details</ng-template> -->
     <app-queries #stepThree></app-queries>
   </mat-step>
-  <mat-step [stepControl]="frmStepFour | async">
+  <mat-step [stepControl]="frmStepFour | async" [editable]="false">
     <!-- <ng-template matStepLabel>Step Two Details</ng-template> -->
     <app-offers-list #stepFour></app-offers-list>
   </mat-step>
-  <mat-step [stepControl]="frmStepFive | async">
+  <mat-step [stepControl]="frmStepFive | async" [editable]="false">
     <!-- <ng-template matStepLabel>Step Two Details</ng-template> -->
     <app-loan-details #stepFive></app-loan-details>
   </mat-step>

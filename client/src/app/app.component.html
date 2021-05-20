@@ -5,6 +5,7 @@
   <div *ngIf="!displayStepper; else stepper">
     <app-home-page (next)="displayStepper = true"></app-home-page>
   </div>
+
   <ng-template #stepper>
     <app-stepper></app-stepper>
   </ng-template>
