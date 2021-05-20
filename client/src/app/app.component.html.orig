@@ -1,3 +1,16 @@
+<<<<<<< HEAD
+<mat-toolbar>
+    <span class="title">
+      בנק הפועלים
+    </span>
+</mat-toolbar>
+<div *ngIf="!displayStepper; else stepper">
+  <app-home-page (next)="displayStepper = true"></app-home-page>
+</div>
+<ng-template #stepper>
+  <app-stepper></app-stepper>
+</ng-template>
+=======
 <mat-sidenav-container>
   <mat-toolbar color="primary">
     <span class="title"> בנק הפועלים </span>
@@ -10,3 +23,4 @@
     <app-stepper></app-stepper>
   </ng-template>
 </mat-sidenav-container>
+>>>>>>> stepper

@@ -58,7 +58,6 @@ $custom-light-blue: (
 
 $candy-app-primary: mat-palette($custom-light-blue, 900);
 $candy-app-accent: mat-palette($mat-grey);
-
 $candy-app-warn: mat-palette($mat-red, 500, A200, A700);
 
 $candy-app-theme: mat-light-theme(
@@ -68,7 +67,6 @@ $candy-app-theme: mat-light-theme(
 );
 
 @include angular-material-theme($candy-app-theme);
-
 .btn-grad {
   background-image: linear-gradient(
     to right top,
