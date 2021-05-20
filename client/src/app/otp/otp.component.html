@@ -20,11 +20,11 @@
           מהו הקוד שנשלח לך לנייד מספר
           {{ stateStore.phone.value }} ?</mat-label
         >
-        <div dir="ltr" type="password">
-          <!-- need to change to dynamic [config]="{ length: 6 }" by check otp store length -->
+        <div dir="ltr">
           <ng-otp-input
+          [isPasswordInput]="true"
             (onInputChange)="onOtpChange($event)"
-            [config]="{ length: 6 }"
+            [config]="{ length: 6 , isPasswordInput:true}"
           ></ng-otp-input>
         </div>
         הקוד שהוקלד
@@ -37,7 +37,7 @@
             <span>שלחו לי קוד חדש</span>
           </a>
         </div>
-        <div class="btn-grad-actions">
+        <div class="btn-grad-actions" >
           <button class="btn-grad" type="submit" matStepperNext mat-button>
             הבא
           </button>

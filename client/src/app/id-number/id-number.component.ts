@@ -24,14 +24,16 @@ import { StateStoreService } from "../utils/state/state-store.service";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IdNumberComponent implements OnInit {
-  @Output() next = new EventEmitter<void>();
-  titleAlert = "שדה זה נדרש";
+
   frmStepOne: FormGroup;
   frmStepOne$: Observable<FormGroup>;
-  nextArrow: AnimationOptions;
   private myFrmStepOne$ = new BehaviorSubject<FormGroup>(null);
-  myFrmStepOneListener$: Observable<FormGroup> =
-    this.myFrmStepOne$.asObservable();
+  myFrmStepOneListener$: Observable<FormGroup> = this.myFrmStepOne$.asObservable();
+  @Output() next = new EventEmitter<void>();
+  titleAlert = "שדה זה נדרש";
+
+  nextArrow: AnimationOptions;
+
   myFrmStepOne(form: FormGroup) {
     this.myFrmStepOne$.next(form);
   }
@@ -44,21 +46,24 @@ export class IdNumberComponent implements OnInit {
     private appService: AppService,
     private formBuilder: FormBuilder,
     private stateStore: StateStoreService
-  ) {}
+  ) {
 
-  ngOnInit(): void {
-    this.createForm();
-    this.myFrmStepOne(this.frmStepOne);
-    this.frmStepOne$ = this.myFrmStepOneListener$.pipe(delay(0));
-  }
-
-  createForm() {
     this.frmStepOne = this.formBuilder.group({
-      name: [null, Validators.required],
-      idNumber: [null, Validators.required],
-      phone: [null, Validators.required],
+      name: ['', Validators.required],
+      idNumber: ['', Validators.required],
+      phone: ['', Validators.required],
     });
   }
+
+  ngOnInit(): void {
+    // this.createForm();
+    this.myFrmStepOne(this.frmStepOne);
+    // this.frmStepOne$ = this.myFrmStepOneListener$.pipe(delay(0));
+  }
+
+  // createForm() {
+
+  // }
 
   onSubmit() {
     if (this.frmStepOne.valid) {

@@ -6,6 +6,7 @@
     <mat-card-content>
       <mat-form-field class="example-full-width" appearance="outline">
         <mat-label> מה סכום ההלואה שאתה מעוניין? </mat-label>
+        <div class="container">
         <input
           type="number"
           matInput
@@ -13,6 +14,7 @@
           formControlName="loanAmount"
         />
         <span matPrefix>₪&nbsp;</span>
+        </div>
         <mat-error
           *ngIf="!formControl('loanAmount').valid && formControl('loanAmount')"
         >
@@ -46,11 +48,8 @@
     </mat-card-content>
     <mat-card-actions dir="ltr">
       <div class="btn-grad-actions">
-        <button class="btn-grad" type="submit" matStepperNext mat-button>
+        <button class="btn-grad" type="submit" mat-button>
           הבא
-        </button>
-        <button class="btn-grad" matStepperPrevious type="submit" mat-button>
-          הקודם
         </button>
       </div>
     </mat-card-actions>
