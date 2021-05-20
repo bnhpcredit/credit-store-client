@@ -1,2 +1,10 @@
 @import '../styles/_buttons';
 @import '../styles/_titles';
+
+.btn-grad{
+  width: 100%;
+}
+.container{
+  display: flex;
+  justify-content: space-between;
+}

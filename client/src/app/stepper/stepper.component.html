@@ -1,22 +1,21 @@
-<mat-vertical-stepper linear #stepper>
-  <mat-step [stepControl]="frmStepOne | async">
-    <!-- <ng-template matStepLabel>הפרטים שלך</ng-template> -->
-    <app-id-number #stepOne></app-id-number>
-  </mat-step>
-  <mat-step [stepControl]="frmStepTwo | async">
-    <!-- <ng-template matStepLabel>אימות</ng-template> -->
-    <app-otp #stepTwo></app-otp>
-  </mat-step>
-  <mat-step [stepControl]="frmStepThree | async">
-    <!-- <ng-template matStepLabel>Step Two Details</ng-template> -->
-    <app-queries #stepThree></app-queries>
-  </mat-step>
-  <mat-step [stepControl]="frmStepFour | async">
-    <!-- <ng-template matStepLabel>Step Two Details</ng-template> -->
-    <app-offers-list #stepFour></app-offers-list>
-  </mat-step>
-  <mat-step [stepControl]="frmStepFive | async">
-    <!-- <ng-template matStepLabel>Step Two Details</ng-template> -->
-    <app-loan-details #stepFive></app-loan-details>
-  </mat-step>
-</mat-vertical-stepper>
+<ng-template #showStepper>
+  <mat-horizontal-stepper linear #stepper>
+    <ng-template matStepperIcon="edit">
+      <mat-icon class="done">done</mat-icon>
+    </ng-template>
+    <mat-step [stepControl]="frmStepOne | async">
+      <app-id-number #stepOne></app-id-number>
+    </mat-step>
+    <mat-step [stepControl]="frmStepTwo | async">
+      <app-otp #stepTwo></app-otp>
+    </mat-step>
+    <mat-step [stepControl]="frmStepThree | async">
+      <app-queries #stepThree></app-queries>
+    </mat-step>
+    <mat-step [stepControl]="frmStepFour | async">
+      <app-offers-list (next)="showLastStage()" #stepFour></app-offers-list>
+    </mat-step>
+  </mat-horizontal-stepper>
+</ng-template>
+
+<app-loan-details *ngIf="showLoanDetails; else showStepper"></app-loan-details>

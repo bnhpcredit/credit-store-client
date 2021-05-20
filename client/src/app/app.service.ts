@@ -1,18 +1,15 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import {StateStoreService} from './utils/state/state-store.service';
-import {Subject} from 'rxjs';
-import {OffersList} from "./utils/models/offers-list";
-import {ProductLoanTypes} from "./utils/models/product-loan-types.enum";
-
-let mockOtp = 1;
-
+import { Subject } from 'rxjs';
+import { OffersList } from './utils/models/offers-list';
+let mockOtp = 123456;
 @Injectable({
   providedIn: 'root'
 })
 export class AppService {
   subject = new Subject<any>();
-
+  //toogleLastStage = new Subject<any>();
 
   sendForm(form, step) {
     this.subject.next({form, step});
@@ -87,5 +84,10 @@ export class AppService {
   addUser(user: any) {
     return this.http.post(this.rootURL + '/user', {user});
   }
+
+  // onShowLastStage(){
+  //   this.toogleLastStage.next();
+  // }
+
 
 }
