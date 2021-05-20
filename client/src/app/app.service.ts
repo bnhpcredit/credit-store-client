@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {StateStoreService} from './utils/state/state-store.service';
 import { Subject } from 'rxjs';
+import { OffersList } from './utils/models/offers-list';
 let mockOtp = 123456;
 @Injectable({
   providedIn: 'root'
 })
 export class AppService {
   subject = new Subject<any>();
-  toogleLastStage = new Subject<any>();
+  //toogleLastStage = new Subject<any>();
 
   sendForm(form, step) {
     this.subject.next({form, step});

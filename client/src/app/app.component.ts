@@ -1,4 +1,4 @@
-import {Component, OnDestroy, ViewChild, ViewEncapsulation} from '@angular/core';
+import {
   Component,
   OnDestroy,
   OnInit,
@@ -10,7 +10,7 @@ import { AppService } from "./app.service";
 import { takeUntil } from "rxjs/operators";
 import { Subject } from "rxjs";
 import { ScreenStages } from "./screen-stages.enum";
-import {MatSidenav} from '@angular/material/sidenav';
+import { MatSidenav } from "@angular/material/sidenav";
 import { CreditOtpService } from "./services/credit-otp/credit-otp.service";
 import { ThisReceiver } from "@angular/compiler";
 
@@ -21,6 +21,7 @@ import { ThisReceiver } from "@angular/compiler";
   encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent implements OnDestroy{
+  @ViewChild(MatSidenav) sidenav;
   screenStages = ScreenStages;
   screenStage = ScreenStages.Intro;
   displayStepper = false;
@@ -30,9 +31,9 @@ export class AppComponent implements OnDestroy{
   }
 
   constructor(private appService: AppService, private otp: CreditOtpService) {
+    this.otp
       .get({ phone: "1234", otp: "1234" })
-    this.otp.get({phone: '1234', otp: '1234'}).subscribe(res => console.log(res));
-    })
+      .subscribe((res) => console.log(res));
   }
 
 
@@ -54,9 +55,9 @@ export class AppComponent implements OnDestroy{
     // if (screenStage === ScreenStages.Otp) {
     //   this.appService.sendOtp();
     // }
-    // if (sidenavToggle) {
-    //   this.sidenav.toggle();
-    // }
+    if (sidenavToggle) {
+      this.sidenav.toggle();
+    }
   }
 
   onSubmit() {
@@ -124,5 +125,4 @@ export class AppComponent implements OnDestroy{
       this.showOtpComponent = true;
     }, 0);
   }
-
 }
