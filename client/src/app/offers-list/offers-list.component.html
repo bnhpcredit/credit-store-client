@@ -13,9 +13,16 @@
            {{offersList.loans.length}}
           הצעות במיוחד עבורך
         </mat-card-title>
+
+        <!-- <h3>בחר הלוואה שמתאימה לך</h3> -->
+
+        <mat-card-subtitle>
+          בחר הלוואה שמתאימה לך
+        </mat-card-subtitle>
+
       </mat-card-header>
+
       <mat-card-content>
-        <h3>בחר הלוואה שמתאימה לך</h3>
         <section class="radio-group-section app-offers-list">
           <mat-radio-group formControlName="selectedOffer">
             <ng-container *ngFor="let offer of offersList.loans">

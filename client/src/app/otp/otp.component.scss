@@ -1,5 +1,5 @@
-@import '../styles/_buttons';
-@import '../styles/_titles';
+@import "../styles/_buttons";
+@import "../styles/_titles";
 
 .mat-icon:hover {
   opacity: 1 !important;
@@ -21,7 +21,9 @@ mat-label {
   width: 200px;
   height: 200px;
 }
-
+.mat-card-header {
+  justify-content: center;
+}
 
 .reset-otp a {
   display: flex;

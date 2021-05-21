@@ -2,12 +2,13 @@
 @import '../styles/_titles';
 
 .mat-card-header, h3, app-offers-list {
-  text-align: center;
+  text-align: right !important;
 }
 
-h3 {
-  font-size: 16px;
+.mat-card-header .mat-card-subtitle {
+  font-size: 1rem;
 }
+
 
 .app-offers-list {
   .img-wrapper, .name-rapper {
