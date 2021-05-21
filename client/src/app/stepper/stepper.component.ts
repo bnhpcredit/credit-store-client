@@ -1,5 +1,6 @@
 import { STEPPER_GLOBAL_OPTIONS } from "@angular/cdk/stepper";
 import { Component, EventEmitter, Output, ViewChild } from "@angular/core";
+import { AnimationOptions } from "ngx-lottie";
 import { AppService } from "../app.service";
 import { IdNumberComponent } from "../id-number/id-number.component";
 import { LoanDetailsComponent } from "../loan-details/loan-details.component";
@@ -18,7 +19,7 @@ export class StepperComponent   {
   state: string;
   title = "mat-stepper";
   showLoanDetails = false;
-
+  finish = false;
   @Output() next = new EventEmitter<void>();
 
   constructor(private appService: AppService) {}
@@ -56,4 +57,18 @@ export class StepperComponent   {
     this.showLoanDetails = true;
     this.next.emit();
   }
+
+  finishLastStage(){
+    this.finish = true;
+  }
+
+  confetti: AnimationOptions = {
+      path: "/assets/lotties/35875-confetti-on-transparent-background (1).json",
+      loop: false,
+  };
+
+  finishLottie: AnimationOptions = {
+    path: "/assets/lotties/finish.json",
+    loop: true,
+};
 }
