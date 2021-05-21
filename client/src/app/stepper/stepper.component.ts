@@ -69,6 +69,6 @@ export class StepperComponent   {
 
   finishLottie: AnimationOptions = {
     path: "/assets/lotties/finish.json",
-    loop: true,
+    loop: false,
 };
 }
