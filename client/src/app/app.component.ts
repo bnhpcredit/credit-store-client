@@ -147,7 +147,7 @@ export class AppComponent implements OnDestroy{
   }
 
   spinner: AnimationOptions = {
-    path: "/assets/lotties/1370-confetti.json",
+    path: "/assets/lotties/8587-pixel-burst.json",
     loop: true,
   };
 
