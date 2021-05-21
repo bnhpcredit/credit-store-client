@@ -8,11 +8,12 @@ import {
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { AppService } from "./app.service";
 import { takeUntil } from "rxjs/operators";
-import { Subject } from "rxjs";
+import { interval, Subject, Subscription } from "rxjs";
 import { ScreenStages } from "./screen-stages.enum";
 import { MatSidenav } from "@angular/material/sidenav";
 import { CreditOtpService } from "./services/credit-otp/credit-otp.service";
 import { ThisReceiver } from "@angular/compiler";
+import { AnimationOptions } from "ngx-lottie";
 
 @Component({
   selector: "app-root",
@@ -31,6 +32,8 @@ export class AppComponent implements OnDestroy{
   }
 
   constructor(private appService: AppService, private otp: CreditOtpService) {
+
+    this.loadContent();
     this.otp
       .get({ phone: "1234", otp: "1234" })
       .subscribe((res) => console.log(res));
@@ -125,4 +128,27 @@ export class AppComponent implements OnDestroy{
       this.showOtpComponent = true;
     }, 0);
   }
+
+  value = 0;
+  loading = true;
+
+
+  loadContent() {
+    this.loading = true;
+
+    const subs$: Subscription = interval(200).subscribe(res => {
+        this.value++
+        if(this.value === 10){
+          subs$.unsubscribe();
+          this.loading = false;
+        }
+      });
+
+  }
+
+  spinner: AnimationOptions = {
+    path: "/assets/lotties/1370-confetti.json",
+    loop: true,
+  };
+
 }

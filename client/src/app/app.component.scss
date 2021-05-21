@@ -1,4 +1,3 @@
-
 .mat-form-field {
   margin: 10px 0 2px;
 }
@@ -22,7 +21,6 @@
     max-width: 750px;
     margin: 30px auto;
 
-
     .mat-card-content {
       display: flex;
       flex-direction: column;
@@ -38,6 +36,12 @@
       max-width: 700px;
       width: 100%;
     }
+  }
+  .spinner > div {
+    margin-top: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .is-loading {

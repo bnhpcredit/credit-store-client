@@ -2,10 +2,17 @@
   <mat-toolbar color="primary">
     <span class="title"> בנק הפועלים </span>
   </mat-toolbar>
-  <div *ngIf="!displayStepper; else stepper">
-    <app-home-page (next)="displayStepper = true"></app-home-page>
+  <div class="spinner" *ngIf="loading; else showContent">
+    <div class="d-flex align-items-center">
+      <ng-lottie [options]="spinner"></ng-lottie>
+    </div>
   </div>
-  <ng-template #stepper>
-    <app-stepper></app-stepper>
+  <ng-template #showContent>
+    <div *ngIf="!displayStepper; else stepper">
+      <app-home-page (next)="displayStepper = true"></app-home-page>
+    </div>
+    <ng-template #stepper>
+      <app-stepper></app-stepper>
+    </ng-template>
   </ng-template>
 </mat-sidenav-container>
