@@ -56,8 +56,8 @@ export class OffersListComponent implements OnInit {
     return this.frmStepFour.get(name) as FormControl;
   }
 
-  spinner: AnimationOptions = {
-    path: "/assets/lotties/spinner.json",
+  searching: AnimationOptions = {
+    path: "/assets/lotties/searching.json",
     loop: true,
   };
 

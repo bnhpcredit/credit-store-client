@@ -1,7 +1,8 @@
 <form [formGroup]="frmStepFour" (ngSubmit)="nextStage()">
   <div class="spinner" *ngIf="!(stateStore.offersList.value$ | async); else showContent">
+    <h2 class="searching-title">אנו מחפשים עבורך את ההצעות שמותאמות לך אישית</h2>
     <div class="d-flex align-items-center">
-      <ng-lottie [options]="spinner"></ng-lottie>
+      <ng-lottie [options]="searching"></ng-lottie>
     </div>
   </div>
 
