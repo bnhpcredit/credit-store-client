@@ -46,9 +46,9 @@ export class AppService {
         {
           id: "85d41c57-b921-42af-97a9-6cca2540f14c",
           productType: ProductLoanTypes.Vacation,
-          productTypeName: "הלוואה מהירה לכל מטרה",
+          productTypeName: "הלוואה מהירה לכל מטרה עד ₪20,000",
           loanType: 1,
-          loanAmount: 50000,
+          loanAmount: 20000,
           numberOfPayments: 32,
           startDate: "2021-05-09",
           endDate: "2021-05-09",
@@ -57,7 +57,7 @@ export class AppService {
         {
           id: "85d41c57-b921-42af-97a9-6cca2540f14c",
           productType: ProductLoanTypes.Car,
-          productTypeName: "הלוואה בערבות הפנסיה",
+          productTypeName: "הלוואה בערבות פנסיה עד ₪100,000",
           loanType: 2,
           loanAmount: 100000,
           numberOfPayments: 52,
@@ -68,7 +68,7 @@ export class AppService {
         {
           id: "85d41c57-b921-42af-97a9-6cca2540f14c",
           productType: ProductLoanTypes.Department,
-          productTypeName: "הלוואה דיגיטלית בקליק",
+          productTypeName: "הלוואה דיגיטלית בקליק עד ₪50,000",
           loanType: 2,
           loanAmount: 100000,
           numberOfPayments: 52,

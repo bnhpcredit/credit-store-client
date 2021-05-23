@@ -18,7 +18,7 @@
         <!-- <h3>בחר הלוואה שמתאימה לך</h3> -->
 
         <mat-card-subtitle>
-          בחר הלוואה שמתאימה לך
+          אלה מוצרי אשראי שמותאמים לך אישית
         </mat-card-subtitle>
 
       </mat-card-header>
@@ -28,10 +28,9 @@
           <mat-radio-group formControlName="selectedOffer">
             <ng-container *ngFor="let offer of offersList.loans">
               <mat-radio-button value="1">
-                <span class="img-wrapper">
-                  <img src="assets/images/products/{{offer.typeImage}}.jpg">
-                </span>
-                <span class="name-rapper">{{offer.productTypeName}}</span>
+                <div class="loan-info"> 
+                   <span class="name-rapper">{{offer.productTypeName}}</span>
+                </div>
               </mat-radio-button>
             </ng-container>
             <mat-error *ngIf="!formControl('selectedOffer').valid && isSubmitted">

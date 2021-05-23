@@ -7,14 +7,12 @@
       </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <h3> מה מצבך התעסוקתי? </h3>
+      <h3> האם בשנתיים הקרובות אתה מתכוון לקנות דירה? </h3>
       <section class="radio-group-section">
         <mat-radio-group formControlName="occupation">
-          <mat-radio-button value="{{occupations.Employee}}"> שכיר </mat-radio-button>
-          <mat-radio-button value="{{occupations.SelfEmployee}}"> עצמאי </mat-radio-button>
-          <mat-radio-button value="{{occupations.Retired}}"> גמלאי </mat-radio-button>
-          <mat-radio-button value="{{occupations.LeaveOfAbsence}}"> חל"ת </mat-radio-button>
-          <mat-error *ngIf="!formControl('occupation').valid && isSubmitted">
+          <mat-radio-button value="{{occupations.Employee}}"> כן </mat-radio-button>
+          <mat-radio-button value="{{occupations.SelfEmployee}}"> לא </mat-radio-button>
+                   <mat-error *ngIf="!formControl('occupation').valid && isSubmitted">
             {{ titleAlert }}
           </mat-error>
         </mat-radio-group>
