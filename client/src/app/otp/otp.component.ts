@@ -2,8 +2,10 @@ import {
   ChangeDetectionStrategy,
   Component,
   EventEmitter,
+  OnDestroy,
   OnInit,
   Output,
+  ViewChild,
 } from "@angular/core";
 import {
   AbstractControl,
@@ -16,7 +18,7 @@ import {
 } from "@angular/forms";
 import { StateStoreService } from "../utils/state/state-store.service";
 import { AppService } from "../app.service";
-import { Observable, BehaviorSubject } from "rxjs";
+import { Observable, BehaviorSubject, Subscription } from "rxjs";
 import { delay } from "rxjs/operators";
 import { AnimationOptions } from "ngx-lottie";
 
@@ -26,12 +28,12 @@ import { AnimationOptions } from "ngx-lottie";
   styleUrls: ["./otp.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class OtpComponent implements OnInit {
+export class OtpComponent implements OnInit, OnDestroy {
   @Output() next = new EventEmitter<void>();
   isSubmitted = false;
   otp: string = null;
-
-
+  otpData: string = null;
+  private _sub: Subscription;
 
   frmStepTwo: FormGroup;
   frmStepTwo$: Observable<FormGroup>;
@@ -57,7 +59,7 @@ export class OtpComponent implements OnInit {
 
   createForm() {
     this.frmStepTwo = this.formBuilder.group({
-      otpReceived: [null, [Validators.required, this.otpOK()]],
+      otpReceived: ["1234", [Validators.required, this.otpOK()]],
     });
   }
 
@@ -71,7 +73,7 @@ export class OtpComponent implements OnInit {
       if (!value) {
         return null;
       }
-      console.log(this.stateStore.otp.value);
+
       const otpValid = this.stateStore.otp.value === +value;
       return !otpValid ? { otpValid: true } : null;
     };
@@ -79,14 +81,19 @@ export class OtpComponent implements OnInit {
 
   onSubmit() {
     this.isSubmitted = true;
-    console.log(this.frmStepTwo.valid);
-    if (this.frmStepTwo.valid) {
-      this.next.emit();
-    }
+   this._sub = this.appService
+      .validateOtp(this.frmStepTwo.get("otpReceived").value)
+      .subscribe((res) => {
+        if (res.verified && this.frmStepTwo.valid) {
+          console.log(res);
+          this.next.emit();
+        }
+      });
     this.otp = null;
   }
 
   resendOtp() {
+    console.log("on reset otp");
     this.frmStepTwo.reset();
     this.appService.sendOtp();
   }
@@ -105,4 +112,9 @@ export class OtpComponent implements OnInit {
     path: "/assets/lotties/otp.json",
     loop: true,
   };
+
+  ngOnDestroy() {
+    this._sub.unsubscribe();
+  }
+
 }

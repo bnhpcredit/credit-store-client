@@ -15,6 +15,7 @@ import { AnimationOptions } from "ngx-lottie";
 import { Observable, BehaviorSubject } from "rxjs";
 import { delay } from "rxjs/operators";
 import { AppService } from "../app.service";
+import { CreditOtpService } from "../services/credit-otp/credit-otp.service";
 import { StateStoreService } from "../utils/state/state-store.service";
 
 @Component({
@@ -45,7 +46,8 @@ export class IdNumberComponent implements OnInit {
   constructor(
     private appService: AppService,
     private formBuilder: FormBuilder,
-    private stateStore: StateStoreService
+    private stateStore: StateStoreService,
+    private creditOtpService: CreditOtpService
   ) {
 
     this.frmStepOne = this.formBuilder.group({
@@ -71,6 +73,7 @@ export class IdNumberComponent implements OnInit {
       this.stateStore.idNumber.update(this.frmStepOne.get("idNumber").value);
       this.stateStore.phone.update(this.frmStepOne.get("phone").value);
       this.appService.sendOtp();
+
       this.next.emit();
     }
   }

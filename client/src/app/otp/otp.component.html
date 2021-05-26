@@ -24,16 +24,16 @@
           <ng-otp-input
           [isPasswordInput]="true"
             (onInputChange)="onOtpChange($event)"
-            [config]="{ length: 6 , isPasswordInput:true, allowNumbersOnly:true}"
+            [config]="{ length:4,isPasswordInput:true, allowNumbersOnly:false}"
           ></ng-otp-input>
         </div>
-        הקוד שהוקלד
+        <div class="store-otp">{{stateStore.otp.value$ | async}}</div>
         <mat-error *ngIf="!otp && isSubmitted"> שגוי </mat-error>
       </mat-card-content>
       <mat-card-actions dir="ltr">
-        <div class="reset-otp">
+        <div (click)="resendOtp()" class="reset-otp">
           <a href="#">
-            <mat-icon (click)="resendOtp()">autorenew</mat-icon>
+            <mat-icon >autorenew</mat-icon>
             <span>שלחו לי קוד חדש</span>
           </a>
         </div>

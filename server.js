@@ -5,13 +5,16 @@ const app = express(),
 
 const users = [];
 const otpRoutes = require('./server-api/api/otp/otp.routes');
+const productsRoutes = require('./server-api/api/products/products.routes');
 
 app.use(bodyParser.json());
 app.use(express.static(process.cwd()+"/client/dist/"));
 
-// routes
 
 app.use('/api/otp', otpRoutes);
+
+app.use('/api/products', productsRoutes);
+
 
 app.get('/api/users', (req, res) => {
   res.json(users);

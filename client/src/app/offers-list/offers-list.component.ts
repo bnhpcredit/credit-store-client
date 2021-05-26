@@ -5,12 +5,18 @@ import {
   OnInit,
   Output,
 } from "@angular/core";
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from "@angular/forms";
 import { Occupation } from "../utils/models/occupation.enum";
 import { Accommodation } from "../utils/models/accommodation.enum";
 import { StateStoreService } from "../utils/state/state-store.service";
 import { Observable, BehaviorSubject } from "rxjs";
-import {AnimationOptions} from "ngx-lottie";
+import { AnimationOptions } from "ngx-lottie";
+import { AppService } from "../app.service";
 
 @Component({
   selector: "app-offers-list",
@@ -21,7 +27,6 @@ import {AnimationOptions} from "ngx-lottie";
 export class OffersListComponent implements OnInit {
   @Output() next = new EventEmitter<void>();
 
-  // frmStepFour
   occupations = Occupation;
   accommodations = Accommodation;
   titleAlert = "שדה זה נדרש";
@@ -39,7 +44,8 @@ export class OffersListComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    public stateStore: StateStoreService
+    public stateStore: StateStoreService,
+    private appService: AppService
   ) {}
 
   ngOnInit(): void {
@@ -48,7 +54,7 @@ export class OffersListComponent implements OnInit {
 
   createForm() {
     this.frmStepFour = this.formBuilder.group({
-      selectedOffer: [null, Validators.required]
+      selectedOffer: [null, Validators.required],
     });
   }
 

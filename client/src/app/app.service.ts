@@ -1,96 +1,54 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import {StateStoreService} from './utils/state/state-store.service';
-import { Subject } from 'rxjs';
-import { OffersList } from './utils/models/offers-list';
-import {ProductLoanTypes} from "./utils/models/product-loan-types.enum";
-
-let mockOtp = 123456;
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { StateStoreService } from "./utils/state/state-store.service";
+import { OffersList } from "./utils/models/offers-list";
+import { CreditOtpService } from "./services/credit-otp/credit-otp.service";
+import { CreditOffersService } from "./services/credit-offers/credit-offers.service";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class AppService {
-  subject = new Subject<any>();
-  //toogleLastStage = new Subject<any>();
+  constructor(
+    private http: HttpClient,
+    private stateStore: StateStoreService,
+    private creditOtpService: CreditOtpService,
+    private creditOffersService: CreditOffersService
+  ) {}
 
-  sendForm(form, step) {
-    this.subject.next({form, step});
-  }
+  rootURL = "/api";
 
-  constructor(private http: HttpClient, private stateStore: StateStoreService) {
-  }
-
-  rootURL = '/api';
-
-  sendOtp() {
-    this.stateStore.otp.clear();
-    // simulate async request
-    setTimeout(() => {
-      const otp = mockOtp++;
-      this.stateStore.otp.update(otp);
-    }, 2000);
-  }
-
-  getOffersLis() {
-    // simulate async request
-    setTimeout(() => {
-      const offersList: OffersList = this.getMockOfferList();
-      this.stateStore.offersList.update(offersList);
-    }, 2000);
-  }
-
-  getMockOfferList(): OffersList {
-    return new OffersList({
-      loans: [
-        {
-          id: "85d41c57-b921-42af-97a9-6cca2540f14c",
-          productType: ProductLoanTypes.Vacation,
-          productTypeName: "הלוואה מהירה לכל מטרה עד ₪20,000",
-          loanType: 1,
-          loanAmount: 20000,
-          numberOfPayments: 32,
-          startDate: "2021-05-09",
-          endDate: "2021-05-09",
-          firstPaymentDate: "2021-05-09"
-        },
-        {
-          id: "85d41c57-b921-42af-97a9-6cca2540f14c",
-          productType: ProductLoanTypes.Car,
-          productTypeName: "הלוואה בערבות פנסיה עד ₪100,000",
-          loanType: 2,
-          loanAmount: 100000,
-          numberOfPayments: 52,
-          startDate: "2021-05-09",
-          endDate: "2021-05-09",
-          firstPaymentDate: "2021-05-09"
-        },
-        {
-          id: "85d41c57-b921-42af-97a9-6cca2540f14c",
-          productType: ProductLoanTypes.Department,
-          productTypeName: "הלוואה דיגיטלית בקליק עד ₪50,000",
-          loanType: 2,
-          loanAmount: 100000,
-          numberOfPayments: 52,
-          startDate: "2021-05-09",
-          endDate: "2021-05-09",
-          firstPaymentDate: "2021-05-09"
-        }
-      ]
-    });
+  getOffersList() {
+    this.creditOffersService
+      .get({ partyId: this.stateStore.idNumber.value.toString() })
+      .subscribe((productsData) => {
+        this.stateStore.offersList.update(
+          new OffersList({ loans: productsData.products.loanOffers })
+        );
+      });
   }
 
   getUsers() {
-    return this.http.get(this.rootURL + '/users');
+    return this.http.get(this.rootURL + "/users");
   }
 
   addUser(user: any) {
-    return this.http.post(this.rootURL + '/user', {user});
+    return this.http.post(this.rootURL + "/user", { user });
   }
 
-  // onShowLastStage(){
-  //   this.toogleLastStage.next();
-  // }
+  sendOtp() {
+    return this.creditOtpService
+      .post({ phone: this.stateStore.phone.value.toString() })
+      .subscribe((otpData) => {
+        console.log(otpData.otp);
+        this.stateStore.otp.update(otpData.otp);
+      });
+  }
 
-
+  validateOtp(otp) {
+    return this.creditOtpService.get({
+      phone: this.stateStore.phone.value.toString(),
+      otp: otp,
+    });
+  }
 }

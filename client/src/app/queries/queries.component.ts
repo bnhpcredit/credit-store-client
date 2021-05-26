@@ -16,7 +16,7 @@ import { Accommodation } from "../utils/models/accommodation.enum";
 import { StateStoreService } from "../utils/state/state-store.service";
 import { Observable, BehaviorSubject } from "rxjs";
 import { delay } from "rxjs/operators";
-import {AppService} from "../app.service";
+import { AppService } from "../app.service";
 
 @Component({
   selector: "app-queries",
@@ -70,7 +70,7 @@ export class QueriesComponent implements OnInit {
     if (this.frmStepThree.valid) {
       this.stateStore.occupation = this.formControl("occupation").value;
       this.stateStore.accommodation = this.formControl("accommodation").value;
-      this.appService.getOffersLis();
+      this.appService.getOffersList();
       this.next.emit();
     }
   }

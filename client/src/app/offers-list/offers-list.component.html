@@ -1,26 +1,31 @@
 <form [formGroup]="frmStepFour" (ngSubmit)="nextStage()">
-  <div class="spinner" *ngIf="!(stateStore.offersList.value$ | async); else showContent">
-    <h2 class="searching-title">אנו מחפשים עבורך את ההצעות שמותאמות לך אישית</h2>
+  <div
+    class="spinner"
+    *ngIf="!(stateStore.offersList.value$ | async); else showContent"
+  >
+    <h2 class="searching-title">
+      אנו מחפשים עבורך את ההצעות שמותאמות לך אישית
+    </h2>
     <div class="d-flex align-items-center">
       <ng-lottie [options]="searching"></ng-lottie>
     </div>
   </div>
 
   <ng-template #showContent>
-    <mat-card class="app-queries" *ngIf="(stateStore.offersList.value$ | async) as offersList">
+    <mat-card
+      class="app-queries"
+      *ngIf="stateStore.offersList.value$ | async as offersList"
+    >
       <mat-card-header>
         <mat-card-title>
           נמצאו
-           {{offersList.loans.length}}
+          {{ offersList.loans.length }}
           הצעות במיוחד עבורך
         </mat-card-title>
-
-        <!-- <h3>בחר הלוואה שמתאימה לך</h3> -->
 
         <mat-card-subtitle>
           אלה מוצרי אשראי שמותאמים לך אישית
         </mat-card-subtitle>
-
       </mat-card-header>
 
       <mat-card-content>
@@ -28,12 +33,14 @@
           <mat-radio-group formControlName="selectedOffer">
             <ng-container *ngFor="let offer of offersList.loans">
               <mat-radio-button value="1">
-                <div class="loan-info"> 
-                   <span class="name-rapper">{{offer.productTypeName}}</span>
+                <div class="loan-info">
+                  <span class="name-rapper">{{ offer.productTypeName }}</span>
                 </div>
               </mat-radio-button>
             </ng-container>
-            <mat-error *ngIf="!formControl('selectedOffer').valid && isSubmitted">
+            <mat-error
+              *ngIf="!formControl('selectedOffer').valid && isSubmitted"
+            >
               {{ titleAlert }}
             </mat-error>
           </mat-radio-group>
@@ -41,17 +48,110 @@
       </mat-card-content>
       <mat-card-actions dir="ltr">
         <div class="btn-grad-actions">
-          <button class="btn-grad btn-grad-next"
+          <button
+            class="btn-grad btn-grad-next"
             type="submit"
             matStepperNext
-            mat-button>  הבא</button>
-          <button class="btn-grad btn-grad-prev"
+            mat-button
+          >
+            הבא
+          </button>
+          <button
+            class="btn-grad btn-grad-prev"
             matStepperPrevious
             type="submit"
-            mat-button>הקודם</button>
+            mat-button
+          >
+            הקודם
+          </button>
         </div>
       </mat-card-actions>
     </mat-card>
   </ng-template>
-
 </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+<form [formGroup]="frmStepFour" (ngSubmit)="nextStage()">
+  <div
+    class="spinner"
+    *ngIf="!(stateStore.offersList.value$ | async); else showContent"
+  >
+    <h2 class="searching-title">
+      אנו מחפשים עבורך את ההצעות שמותאמות לך אישית
+    </h2>
+    <div class="d-flex align-items-center">
+      <ng-lottie [options]="searching"></ng-lottie>
+    </div>
+  </div>
+
+  <ng-template #showContent>
+    <mat-card
+      class="app-queries"
+      *ngIf="stateStore.offersList.value$ | async as offersList"
+    >
+      <mat-card-header>
+        <mat-card-title>
+          נמצאו
+          {{ offersList.length }}
+          הצעות במיוחד עבורך
+        </mat-card-title>
+
+        <mat-card-subtitle>
+          אלה מוצרי אשראי שמותאמים לך אישית
+        </mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <section class="radio-group-section app-offers-list">
+          <mat-radio-group formControlName="selectedOffer">
+            <ng-container *ngFor="let offer of offersList">
+              <mat-radio-button value="1">
+                <div class="loan-info">
+                  <span class="name-rapper">{{ offer.productTypeName }}</span>
+                </div>
+              </mat-radio-button>
+            </ng-container>
+            <mat-error
+              *ngIf="!formControl('selectedOffer').valid && isSubmitted"
+            >
+              {{ titleAlert }}
+            </mat-error>
+          </mat-radio-group>
+        </section>
+      </mat-card-content>
+      <mat-card-actions dir="ltr">
+        <div class="btn-grad-actions">
+          <button
+            class="btn-grad btn-grad-next"
+            type="submit"
+            matStepperNext
+            mat-button
+          >
+            הבא
+          </button>
+          <button
+            class="btn-grad btn-grad-prev"
+            matStepperPrevious
+            type="submit"
+            mat-button
+          >
+            הקודם
+          </button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </ng-template>
+</form> -->
